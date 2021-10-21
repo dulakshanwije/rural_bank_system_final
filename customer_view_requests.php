@@ -1,9 +1,9 @@
 <?php
-    require_once("db_conn.php");
+require_once("db_conn.php");
 
-    if (!isset($_SESSION["current_acc"])) {
-        header("Location: customer_login.php");    
-    }
+if (!isset($_SESSION["current_acc"])) {
+    header("Location: customer_login.php");
+}
 
 $current_nic = $_SESSION["current_acc"];
 
@@ -33,7 +33,7 @@ $resultset = mysqli_query($conn, $sql);
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- font awsome library -->
+    <!-- font awsome library -->
     <script src="https://kit.fontawesome.com/d50e96d6ab.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="stylesheet.css">
     <script src="script.js"></script>
@@ -49,73 +49,73 @@ $resultset = mysqli_query($conn, $sql);
 </head>
 
 <body>
-    
-    
+
+
     <!-- Navigation Bar -->
-<div class="nav-pc-part">
-    <div class="topnavbar">
-        <div class="nav-col-25">
-            <a href="index.html"><img src="images/rbs_logo.png" alt="logo"></a>
-        </div>
-        <div class="nav-col-75">
-            <div class="nav-menu">
-                <a href="javascript:void(0);" onclick="scrolltoShowcase()" class="menu-item-txt"
-                    id="topnav-home">Home</a>
-                <a href="javascript:void(0);" onclick="scrolltoAbout()" class="menu-item-txt"
-                    id="topnav-about">About</a>
-                <a href="javascript:void(0);" onclick="scrolltoServices()" class="menu-item-txt">Services</a>
-                <a href="javascript:void(0);" onclick="scrolltoContacts()" class="menu-item-txt"
-                    id="topnav-contact">Contacts</a>
-                <button class="menu-item-btn" onclick="myFunction3()" id="pc-signin-btn">Profile</button>
+    <div class="nav-pc-part">
+        <div class="topnavbar">
+            <div class="nav-col-25">
+                <a href="index.html"><img src="images/rbs_logo.png" alt="logo"></a>
+            </div>
+            <div class="nav-col-75">
+                <div class="nav-menu">
+                    <a href="customer_home.php" class="menu-item-txt" id="topnav-home">Customer Home</a>
+
+                    <!-- <a href="javascript:void(0);" onclick="scrolltoAbout()" class="menu-item-txt" id="topnav-about">About</a>
+                    <a href="javascript:void(0);" onclick="scrolltoServices()" class="menu-item-txt">Services</a>
+                    <a href="javascript:void(0);" onclick="scrolltoContacts()" class="menu-item-txt" id="topnav-contact">Contacts</a> -->
+
+                    <button class="menu-item-btn" onclick="myFunction3()" id="pc-signin-btn">Profile</button>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="pc-signin" id="pc-signin">
-        <h3>Logged in as : </h3>
-        <?php
-        
-        echo("<p> NIC : ".$_SESSION["current_acc"]."</p>");
-        echo("<p> Name : ".$_SESSION["current_customer"]."</p>");
-        echo("<p> Email : ".$_SESSION["current_customer_email"]."</p>");
-        
-        ?>
-        <input type="button" value="Sign Out" onclick="window.open('customer_logout.php', '_self');">
-    </div>
-</div>
+        <div class="pc-signin" id="pc-signin">
+            <h3>Logged in as : </h3>
+            <?php
 
-<div class="nav-responsive-part">
-    <div class="topnavbar-res">
-        <div onclick="myFunction()">
-            <i class="fas fa-bars menu-icon" id="menu-icon"></i>
-        </div>
-        <div class="menu-logo">
-            <a href="index.html"><img src="images/rbs_logo.png" alt=""></a>
-        </div>
-        <div onclick="myFunction2()">
-            <i class="fas fa-user user-icon" id="user-icon"></i>
-        </div>
-    </div>
-    <div class="dropdown-menu" id="dropdown-menu">
-        <a href="javascript:void(0);" onclick="scrolltoShowcase()">Home</a>
-        <a href="javascript:void(0);" onclick="scrolltoAbout()">About</a>
-        <a href="javascript:void(0);" onclick="scrolltoServices()">Services</a>
-        <a href="javascript:void(0);" onclick="scrolltoContacts()">Contacts</a>
-        <a href="#">Login as</a>
-    </div>
-    <div class="dropdown-signin" id="dropdown-signin">
-        <h3>Logged in as : </h3>
-        <?php
-        echo("<p> NIC : ".$_SESSION["current_acc"]."</p>");
-        echo("<p> Name : ".$_SESSION["current_customer"]."</p>");
-        echo("<p> Email : ".$_SESSION["current_customer_email"]."</p>");
-        
-        ?>
-        <input type="button" value="Sign Out" onclick="window.open('customer_logout.php', '_self');">
-    </div>
-</div>
+            echo ("<p> NIC : " . $_SESSION["current_acc"] . "</p>");
+            echo ("<p> Name : " . $_SESSION["current_customer"] . "</p>");
+            echo ("<p> Email : " . $_SESSION["current_customer_email"] . "</p>");
 
-<!-- <div class="request_container"> -->
-<div class="req_container">
+            ?>
+            <input type="button" value="Sign Out" onclick="window.open('customer_logout.php', '_self');">
+        </div>
+    </div>
+
+    <div class="nav-responsive-part">
+        <div class="topnavbar-res">
+            <div onclick="myFunction()">
+                <i class="fas fa-bars menu-icon" id="menu-icon"></i>
+            </div>
+            <div class="menu-logo">
+                <a href="index.html"><img src="images/rbs_logo.png" alt=""></a>
+            </div>
+            <div onclick="myFunction2()">
+                <i class="fas fa-user user-icon" id="user-icon"></i>
+            </div>
+        </div>
+        <div class="dropdown-menu" id="dropdown-menu">
+            <a href="customer_home.php">Customer Home</a>
+
+            <!-- <a href="javascript:void(0);" onclick="scrolltoAbout()">About</a>
+            <a href="javascript:void(0);" onclick="scrolltoServices()">Services</a>
+            <a href="javascript:void(0);" onclick="scrolltoContacts()">Contacts</a>
+            <a href="#">Login as</a> -->
+        </div>
+        <div class="dropdown-signin" id="dropdown-signin">
+            <h3>Logged in as : </h3>
+            <?php
+            echo ("<p> NIC : " . $_SESSION["current_acc"] . "</p>");
+            echo ("<p> Name : " . $_SESSION["current_customer"] . "</p>");
+            echo ("<p> Email : " . $_SESSION["current_customer_email"] . "</p>");
+
+            ?>
+            <input type="button" value="Sign Out" onclick="window.open('customer_logout.php', '_self');">
+        </div>
+    </div>
+
+    <!-- <div class="request_container"> -->
+    <div class="req_container">
         <div class="req_sort_holder" onchange="sortItems()">
             <!-- <div class="req_sort_type">
                 <input type="checkbox" name="" id="sort_bank_loan">
@@ -138,16 +138,16 @@ $resultset = mysqli_query($conn, $sql);
             <button class="add_new_req_btn" onclick="window.open('customer_requests.php','_self')">Add New Requests</button>
         </div>
 
-<?php
-        while($res = mysqli_fetch_assoc($resultset)){
+        <?php
+        while ($res = mysqli_fetch_assoc($resultset)) {
             echo '            
-            <div class="single_req_container '.$res["customer_request_status"].'">
+            <div class="single_req_container ' . $res["customer_request_status"] . '">
                         <div class="req_header">
                         <div class="status_holder">
                             <p>
             
             ';
-            if($res["customer_request_status"] == "Pending"){
+            if ($res["customer_request_status"] == "Pending") {
                 echo '
                 <i class="fas fa-hourglass-half"></i>
                     <br>
@@ -156,8 +156,7 @@ $resultset = mysqli_query($conn, $sql);
                     </span>
                 </p>
                 ';
-            }
-            else if($res["customer_request_status"] == "Accepted"){
+            } else if ($res["customer_request_status"] == "Accepted") {
                 echo '
                 <i class="far fa-calendar-check"></i>
                     <br>
@@ -166,8 +165,7 @@ $resultset = mysqli_query($conn, $sql);
                     </span>
                 </p>
                 ';
-            }
-            else if($res["customer_request_status"] == "Rejected"){
+            } else if ($res["customer_request_status"] == "Rejected") {
                 echo '
                 <i class="far fa-calendar-times"></i>
                     <br>
@@ -180,14 +178,14 @@ $resultset = mysqli_query($conn, $sql);
             echo '
             </div>
             <div class="topic_holder">
-                <h3>'.$res["customer_request_title"].'</h3>
+                <h3>' . $res["customer_request_title"] . '</h3>
                 <p>
-                    <span>'.$res["customer_nic"].'</span>
+                    <span>' . $res["customer_nic"] . '</span>
                     <span>|</span>
-                    <span>'.$res["customer_request_date"].'</span>
+                    <span>' . $res["customer_request_date"] . '</span>
                 </p>
                 <p>
-                <span class="req_category">'.$res["customer_request_category"].'</span>
+                <span class="req_category">' . $res["customer_request_category"] . '</span>
                 </p>
 
                 </div>
@@ -195,42 +193,42 @@ $resultset = mysqli_query($conn, $sql);
                 <div class="icon_holder">
                 <span>
                 ';
-                switch($res["customer_reqeust_range"]){
-                    case 0:
-                        $str = '<i class="far fa-sad-tear"></i><br><span class = "req_range_txt">Most<br>Negative</span></span>';
-                        break;    
-                    case 1:
-                        $str = '<i class="far fa-frown"></i><br>
+            switch ($res["customer_reqeust_range"]) {
+                case 0:
+                    $str = '<i class="far fa-sad-tear"></i><br><span class = "req_range_txt">Most<br>Negative</span></span>';
+                    break;
+                case 1:
+                    $str = '<i class="far fa-frown"></i><br>
                         <span class = "req_range_txt">
                         Negative
                         </span>
                         </span>';
-                        break;    
-                    case 2:
-                        $str = '<i class="far fa-meh"></i><br>
+                    break;
+                case 2:
+                    $str = '<i class="far fa-meh"></i><br>
                         <span class = "req_range_txt">
                         Average
                         </span>
                         </span>';
-                        break;    
-                    case 3:
-                        $str = '<i class="far fa-smile"></i><br>
+                    break;
+                case 3:
+                    $str = '<i class="far fa-smile"></i><br>
                         <span class = "req_range_txt">
                         Positive
                         </span>
                         </span>';
-                        break;    
-                    case 4:
-                        $str = '<i class="far fa-grin-alt"></i><br><span class = "req_range_txt">Most<br>Positive</span></span>';
-                        break;    
-                }
+                    break;
+                case 4:
+                    $str = '<i class="far fa-grin-alt"></i><br><span class = "req_range_txt">Most<br>Positive</span></span>';
+                    break;
+            }
 
-                echo($str);
-                echo '
+            echo ($str);
+            echo '
                 
                 </div>
                 <div class="btn_holder">
-                    <span onclick="req_body_show(req_'.$res["customer_request_id"].')"><i class="fas fa-chevron-circle-down"></i><br />
+                    <span onclick="req_body_show(req_' . $res["customer_request_id"] . ')"><i class="fas fa-chevron-circle-down"></i><br />
                     <span class = "req_more_txt">
                     More
                     </span>
@@ -238,27 +236,26 @@ $resultset = mysqli_query($conn, $sql);
                 </div>
                 </div>
             </div>
-            <div class="req_reply" id = "req_'.$res["customer_request_id"].'">
+            <div class="req_reply" id = "req_' . $res["customer_request_id"] . '">
                     <div class="reply_text_display">
                         <h4>Your Request :</h4>
-                        <p>'.$res["customer_request_info"].'</p>
+                        <p>' . $res["customer_request_info"] . '</p>
                         <h4>Bank\'s Reply :</h4>
                         ';
-                        if($res["bank_reply"] != null){
-                            echo '<p>'.$res["bank_reply"].'</p>';
-                        }
-                        else{
-                            echo '<p>No replies yet.</p>';
-                        }
-                    echo '
+            if ($res["bank_reply"] != null) {
+                echo '<p>' . $res["bank_reply"] . '</p>';
+            } else {
+                echo '<p>No replies yet.</p>';
+            }
+            echo '
                         </div>
             </div>
             </div>
                 ';
         }
-?>
+        ?>
 
-</div>
+    </div>
     <!-- footer -->
 
     <div class="footer">
@@ -271,9 +268,9 @@ $resultset = mysqli_query($conn, $sql);
                 <i class="fab fa-twitter"></i>
             </p>
         </div>
-            <p>&copy; Copyright 2021. RBS Created By <a href="#about"><span class="blue-colored-text">RBS
-                Creators</span></a>
-            </p>
+        <p>&copy; Copyright 2021. RBS Created By <a href="#about"><span class="blue-colored-text">RBS
+                    Creators</span></a>
+        </p>
     </div>
 </body>
 

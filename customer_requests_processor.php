@@ -28,5 +28,3 @@ if(mysqli_query($conn,$sql)){
 else{
     echo "Something Wrong".mysqli_error($conn);
 }
-
-?>
