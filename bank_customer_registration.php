@@ -71,7 +71,8 @@ if (!isset($_SESSION["crnt_b_id"])) {
                     <a href="bank_home.php" class="menu-item-txt" id="topnav-home"><i class="fas fa-home"></i></a>
                     <a href="bank_manage_customers.php" class="menu-item-txt" id="topnav-home">MANAGE CUSTOMERS</a>
                     <a href="bank_view_customer_details.php" class="menu-item-txt" id="topnav-about">VIEW CUSTOMERS</a>
-                    <a href="" class="menu-item-txt">BANKS AVAILABLE</a>
+                    <a href="bank_view_customer_requests.php" class="menu-item-txt" id="topnav-about">CUSTOMER REQUESTS</a>
+                    <!-- <a href="" class="menu-item-txt">BANKS AVAILABLE</a> -->
                     <button class="menu-item-btn" onclick="myFunction3()" id="pc-signin-btn">Profile</button>
                 </div>
             </div>
@@ -104,7 +105,8 @@ if (!isset($_SESSION["crnt_b_id"])) {
             <a href="bank_home.php">BANK HOME</a>
             <a href="bank_manage_customers.php">MANAGE CUSTOMERS</a>
             <a href="bank_view_customer_details.php">VIEW CUSTOMERS</a>
-            <a href="">BANKS AVAILABLE</a>
+            <a href="bank_view_customer_requests.php">CUSTOMER REQUESTS</a>
+            <!-- <a href="">BANKS AVAILABLE</a> -->
         </div>
         <div class="dropdown-signin" id="dropdown-signin">
             <h3>Logged in as : </h3>

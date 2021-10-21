@@ -3,7 +3,7 @@
 require_once("db_conn.php");
 
 // Check whether banker is login or not  
-if (!isset($_SESSION["crnt_b_id"])){
+if (!isset($_SESSION["crnt_b_id"])) {
     header("Location: bank_login.php?error=Please Login First!");
 }
 
@@ -24,19 +24,18 @@ $sql2 = "SELECT customer_table.customer_first_name,
         ";
 
 $resultset = mysqli_query($conn, $sql);
-$resultset2 = mysqli_query($conn,$sql2);
+$resultset2 = mysqli_query($conn, $sql2);
 $customer_data = array();
 $index = 0;
-if($resultset2){
-    while($row = mysqli_fetch_assoc($resultset2)){
-            $customer_data[$index][0] = $row["customer_nic"];
-            $customer_data[$index][1] = $row["customer_first_name"]." ".$row["customer_last_name"];
-            $customer_data[$index][2] = $row["customer_email"];
-            $customer_data[$index][3] = $row["customer_phone_number"];
-            $index++;
+if ($resultset2) {
+    while ($row = mysqli_fetch_assoc($resultset2)) {
+        $customer_data[$index][0] = $row["customer_nic"];
+        $customer_data[$index][1] = $row["customer_first_name"] . " " . $row["customer_last_name"];
+        $customer_data[$index][2] = $row["customer_email"];
+        $customer_data[$index][3] = $row["customer_phone_number"];
+        $index++;
     }
-}
-else{
+} else {
     echo "Query Failed!!!";
 }
 
@@ -51,7 +50,7 @@ else{
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- font awsome library -->
+    <!-- font awsome library -->
     <script src="https://kit.fontawesome.com/d50e96d6ab.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="stylesheet.css">
     <script src="script.js"></script>
@@ -67,73 +66,72 @@ else{
 </head>
 
 <body>
-    
-    
+
+
     <!-- Navigation Bar -->
     <div class="nav-pc-part">
-    <div class="topnavbar">
-        <div class="nav-col-25">
-            <a href="index.html"><img src="images/rbs_logo.png" alt="logo"></a>
-        </div>
-        <div class="nav-col-75">
-            <div class="nav-menu">
-                <a href="bank_home.php" class="menu-item-txt"
-                    id="topnav-home"><i class="fas fa-home"></i></a>
-                    <a href="bank_customer_registration.php" class="menu-item-txt"
-                    id="topnav-home">REGISTER CUSTOMERS</a>
-                <a href="bank_view_customer_details.php" class="menu-item-txt"
-                id="topnav-about">VIEW CUSTOMERS</a>
-                <a href="#" class="menu-item-txt">BANKS AVAILABLE</a>
-                <button class="menu-item-btn" onclick="myFunction3()" id="pc-signin-btn">Profile</button>
+        <div class="topnavbar">
+            <div class="nav-col-25">
+                <a href="index.html"><img src="images/rbs_logo.png" alt="logo"></a>
+            </div>
+            <div class="nav-col-75">
+                <div class="nav-menu">
+                    <a href="bank_home.php" class="menu-item-txt" id="topnav-home"><i class="fas fa-home"></i></a>
+                    <a href="bank_manage_customers.php" class="menu-item-txt" id="topnav-home">MANAGE</a>
+                    <a href="bank_customer_registration.php" class="menu-item-txt" id="topnav-home">REGISTER</a>
+                    <a href="bank_view_customer_details.php" class="menu-item-txt" id="topnav-about">VIEW</a>
+                    <!-- <a href="#" class="menu-item-txt">BANKS AVAILABLE</a> -->
+                    <button class="menu-item-btn" onclick="myFunction3()" id="pc-signin-btn">Profile</button>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="pc-signin" id="pc-signin">
-        <h3>Logged in as : </h3>
-        <?php
-        
-        echo("<p>Bank : ".$_SESSION["crnt_b_address"]."</p>");
-        echo("<p>District : ".$_SESSION["crnt_b_district"]."</p>");
-        echo("<p>ID : ".$_SESSION["crnt_b_id"]."</p>");
-        
-        ?>
-        <input type="button" value="Sign Out" onclick="window.open('bank_logout.php', '_self');">
-    </div>
-</div>
+        <div class="pc-signin" id="pc-signin">
+            <h3>Logged in as : </h3>
+            <?php
 
-<div class="nav-responsive-part">
-    <div class="topnavbar-res">
-        <div onclick="myFunction()">
-            <i class="fas fa-bars menu-icon" id="menu-icon"></i>
-        </div>
-        <div class="menu-logo">
-            <a href="index.html"><img src="images/rbs_logo.png" alt=""></a>
-        </div>
-        <div onclick="myFunction2()">
-            <i class="fas fa-user user-icon" id="user-icon"></i>
-        </div>
-    </div>
-    <div class="dropdown-menu" id="dropdown-menu">
-        <a href="bank_home.php">BANK HOME</a>
-        <a href="bank_customer_registration.php">REGISTER CUSTOMERS</a>
-        <a href="bank_view_customer_details.php">VIEW CUSTOMERS</a>
-        <a href="">BANKS AVAILABLE</a>
-    </div>
-    <div class="dropdown-signin" id="dropdown-signin">
-        <h3>Logged in as : </h3>
-        <?php
-        
-        echo("<p>Bank : ".$_SESSION["crnt_b_address"]."</p>");
-        echo("<p>District : ".$_SESSION["crnt_b_district"]."</p>");
-        echo("<p>ID : ".$_SESSION["crnt_b_id"]."</p>");
-        
-        ?>
-        <input type="button" value="Sign Out" onclick="window.open('bank_logout.php', '_self');">
-    </div>
-</div>
+            echo ("<p>Bank : " . $_SESSION["crnt_b_address"] . "</p>");
+            echo ("<p>District : " . $_SESSION["crnt_b_district"] . "</p>");
+            echo ("<p>ID : " . $_SESSION["crnt_b_id"] . "</p>");
 
-<!-- <div class="request_container"> -->
-<div class="req_container">
+            ?>
+            <input type="button" value="Sign Out" onclick="window.open('bank_logout.php', '_self');">
+        </div>
+    </div>
+
+    <div class="nav-responsive-part">
+        <div class="topnavbar-res">
+            <div onclick="myFunction()">
+                <i class="fas fa-bars menu-icon" id="menu-icon"></i>
+            </div>
+            <div class="menu-logo">
+                <a href="index.html"><img src="images/rbs_logo.png" alt=""></a>
+            </div>
+            <div onclick="myFunction2()">
+                <i class="fas fa-user user-icon" id="user-icon"></i>
+            </div>
+        </div>
+        <div class="dropdown-menu" id="dropdown-menu">
+            <a href="bank_home.php">BANK HOME</a>
+            <a href="bank_manage_customers.php">MANAGE CUSTOMERS</a>
+            <a href="bank_customer_registration.php">REGISTER CUSTOMERS</a>
+            <a href="bank_view_customer_details.php">VIEW CUSTOMERS</a>
+            <!-- <a href="">BANKS AVAILABLE</a> -->
+        </div>
+        <div class="dropdown-signin" id="dropdown-signin">
+            <h3>Logged in as : </h3>
+            <?php
+
+            echo ("<p>Bank : " . $_SESSION["crnt_b_address"] . "</p>");
+            echo ("<p>District : " . $_SESSION["crnt_b_district"] . "</p>");
+            echo ("<p>ID : " . $_SESSION["crnt_b_id"] . "</p>");
+
+            ?>
+            <input type="button" value="Sign Out" onclick="window.open('bank_logout.php', '_self');">
+        </div>
+    </div>
+
+    <!-- <div class="request_container"> -->
+    <div class="req_container">
         <div class="req_sort_holder" onchange="sortItems()">
             <!-- <div class="req_sort_type">
                 <input type="checkbox" name="" id="sort_bank_loan">
@@ -155,33 +153,33 @@ else{
             </div>
         </div>
 
-<?php
-if(mysqli_num_rows($resultset)){
-        while($res = mysqli_fetch_assoc($resultset)){
+        <?php
+        if (mysqli_num_rows($resultset)) {
+            while ($res = mysqli_fetch_assoc($resultset)) {
 
-                    $current_customer_name = "";
-                    $current_customer_email = "";
-                    $current_customer_phone = "";
+                $current_customer_name = "";
+                $current_customer_email = "";
+                $current_customer_phone = "";
 
-            for($i = 0;$i < $index;$i++){
-                if($res["customer_nic"] == $customer_data[$i][0]){
-                    $current_customer_name = $customer_data[$i][1];
-                    $current_customer_email = $customer_data[$i][2];
-                    $current_customer_phone = $customer_data[$i][3];
+                for ($i = 0; $i < $index; $i++) {
+                    if ($res["customer_nic"] == $customer_data[$i][0]) {
+                        $current_customer_name = $customer_data[$i][1];
+                        $current_customer_email = $customer_data[$i][2];
+                        $current_customer_phone = $customer_data[$i][3];
+                    }
                 }
-            }
 
 
-            echo '
+                echo '
             
-            <div class="single_req_container '.$res["customer_request_status"].'">
+            <div class="single_req_container ' . $res["customer_request_status"] . '">
                         <div class="req_header">
                         <div class="status_holder">
                             <p>
             
             ';
-            if($res["customer_request_status"] == "Pending"){
-                echo '
+                if ($res["customer_request_status"] == "Pending") {
+                    echo '
                 <i class="fas fa-hourglass-half"></i>
                     <br>
                     <span class = "req_status_txt">
@@ -189,9 +187,8 @@ if(mysqli_num_rows($resultset)){
                     </span>
                 </p>
                 ';
-            }
-            else if($res["customer_request_status"] == "Accepted"){
-                echo '
+                } else if ($res["customer_request_status"] == "Accepted") {
+                    echo '
                 <i class="far fa-calendar-check"></i>
                     <br>
                     <span class = "req_status_txt">
@@ -199,9 +196,8 @@ if(mysqli_num_rows($resultset)){
                     </span>
                 </p>
                 ';
-            }
-            else if($res["customer_request_status"] == "Rejected"){
-                echo '
+                } else if ($res["customer_request_status"] == "Rejected") {
+                    echo '
                 <i class="far fa-calendar-times"></i>
                     <br>
                     <span class = "req_status_txt">
@@ -209,18 +205,18 @@ if(mysqli_num_rows($resultset)){
                     </span>
                 </p>
                 ';
-            }
-            echo '
+                }
+                echo '
             </div>
             <div class="topic_holder">
-                <h3>'.$res["customer_request_title"].'</h3>
+                <h3>' . $res["customer_request_title"] . '</h3>
                 <p>
-                    <span>'.$res["customer_nic"].'</span>
+                    <span>' . $res["customer_nic"] . '</span>
                     <span>|</span>
-                    <span>'.$res["customer_request_date"].'</span>
+                    <span>' . $res["customer_request_date"] . '</span>
                 </p>
                 <p>
-                <span class="req_category">'.$res["customer_request_category"].'</span>
+                <span class="req_category">' . $res["customer_request_category"] . '</span>
                 </p>
 
                 </div>
@@ -228,42 +224,42 @@ if(mysqli_num_rows($resultset)){
                 <div class="icon_holder">
                 <span>
                 ';
-                switch($res["customer_reqeust_range"]){
+                switch ($res["customer_reqeust_range"]) {
                     case 0:
                         $str = '<i class="far fa-sad-tear"></i><br><span class = "req_range_txt">Most<br>Negative</span></span>';
-                        break;    
+                        break;
                     case 1:
                         $str = '<i class="far fa-frown"></i><br>
                         <span class = "req_range_txt">
                         Negative
                         </span>
                         </span>';
-                        break;    
+                        break;
                     case 2:
                         $str = '<i class="far fa-meh"></i><br>
                         <span class = "req_range_txt">
                         Average
                         </span>
                         </span>';
-                        break;    
+                        break;
                     case 3:
                         $str = '<i class="far fa-smile"></i><br>
                         <span class = "req_range_txt">
                         Positive
                         </span>
                         </span>';
-                        break;    
+                        break;
                     case 4:
                         $str = '<i class="far fa-grin-alt"></i><br><span class = "req_range_txt">Most<br>Positive</span></span>';
-                        break;    
+                        break;
                 }
 
-                echo($str);
+                echo ($str);
                 echo '
                 
                 </div>
                 <div class="btn_holder">
-                    <span onclick="req_body_show(req_'.$res["customer_request_id"].')"><i class="fas fa-chevron-circle-down"></i><br />
+                    <span onclick="req_body_show(req_' . $res["customer_request_id"] . ')"><i class="fas fa-chevron-circle-down"></i><br />
                     <span class = "req_more_txt">
                     More
                     </span>
@@ -271,30 +267,29 @@ if(mysqli_num_rows($resultset)){
                 </div>
                 </div>
             </div>
-            <div class="req_reply" id = "req_'.$res["customer_request_id"].'">
+            <div class="req_reply" id = "req_' . $res["customer_request_id"] . '">
                 <div class="req_customer_details">
                         <div class = "req_customer_info">
-                            <p><i class="fas fa-user"></i> '.$current_customer_name.'</p>
-                            <p><i class="fas fa-at"></i> '.$current_customer_email.'</p>
-                            <p><i class="fas fa-phone-alt"></i> '.$current_customer_phone.'</p>
+                            <p><i class="fas fa-user"></i> ' . $current_customer_name . '</p>
+                            <p><i class="fas fa-at"></i> ' . $current_customer_email . '</p>
+                            <p><i class="fas fa-phone-alt"></i> ' . $current_customer_phone . '</p>
                         </div>
                         <br>
-                        <p><i class="far fa-comment-alt"></i> '.$res["customer_request_info"].'</p>
+                        <p><i class="far fa-comment-alt"></i> ' . $res["customer_request_info"] . '</p>
                         ';
-                        $text_area_placeholder;
-                        if($res["bank_reply"] != null){
-                            $text_area_placeholder = "Change your previous reply.";
-                            echo '<p style = "margin:10px 0;"><i class="fas fa-sign-out-alt"></i> '.$res["bank_reply"].'</p>';
-                        }
-                        else{
-                            $text_area_placeholder = "Type your message to customer";
-                            echo '<p style = "margin:10px 0;"><i class="fas fa-sign-out-alt"></i> You didn\'t reply yet.</p>';
-                        }
-                        echo '
+                $text_area_placeholder;
+                if ($res["bank_reply"] != null) {
+                    $text_area_placeholder = "Change your previous reply.";
+                    echo '<p style = "margin:10px 0;"><i class="fas fa-sign-out-alt"></i> ' . $res["bank_reply"] . '</p>';
+                } else {
+                    $text_area_placeholder = "Type your message to customer";
+                    echo '<p style = "margin:10px 0;"><i class="fas fa-sign-out-alt"></i> You didn\'t reply yet.</p>';
+                }
+                echo '
                 </div>
-                <form action = "bank_customer_requests_processor.php?req_id='.$res['customer_request_id'].'" method = "POST">
+                <form action = "bank_customer_requests_processor.php?req_id=' . $res['customer_request_id'] . '" method = "POST">
                     <div class="reply_textarea">
-                        <textarea placeholder="'.$text_area_placeholder.'" name="reply_message" id="" cols="30" rows="10" required></textarea>
+                        <textarea placeholder="' . $text_area_placeholder . '" name="reply_message" id="" cols="30" rows="10" required></textarea>
                     </div>
                     <div class="reply_radio_btn">
                         <input type="radio" name="req_status" id="req_accept" value="Accepted">
@@ -309,11 +304,11 @@ if(mysqli_num_rows($resultset)){
             </div>
             </div>
                 ';
+            }
         }
-}
-?>
+        ?>
 
-</div>
+    </div>
     <!-- footer -->
 
     <div class="footer">
@@ -326,9 +321,9 @@ if(mysqli_num_rows($resultset)){
                 <i class="fab fa-twitter"></i>
             </p>
         </div>
-            <p>&copy; Copyright 2021. RBS Created By <a href="#about"><span class="blue-colored-text">RBS
-                Creators</span></a>
-            </p>
+        <p>&copy; Copyright 2021. RBS Created By <a href="#about"><span class="blue-colored-text">RBS
+                    Creators</span></a>
+        </p>
     </div>
 </body>
 
