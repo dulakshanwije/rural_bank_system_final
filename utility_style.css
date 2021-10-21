@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', sans-serif;
+}
+
+body{
+    background:url(images/banking.jpg);
+    background-size: 100%;
+}
+
+li, a, button {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    color:rgb(255, 255, 255);
+    text-decoration: none;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 5%;
+
+}
+
+.logo {
+    cursor: pointer;
+    width: 15%;
+    height:fit-content;
+}
+
+.nav__links {
+    list-style: none;
+}
+.nav__links li {
+    display: inline-block;
+    padding: 0 20px;
+}
+.nav__links li a {
+    transition: all 0.3s ease 0s;
+}
+
+.nav__links li a:hover {
+    color: #0088a9;
+}
+
+button {
+    padding: 9px 25px;
+    background-color: rgba(0, 136, 169, 1);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+
+button:hover{
+    background-color: rgba(0, 136, 169, 0.8);
+}
+
+.active{
+    color: rgba(0, 136, 169, 0.8);
+}
+
+.container{
+    width: 50%;
+    height: 400px;
+    background-color: rgba(231, 223, 223, 0.39);
+    margin: auto;
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+}
+
+#table_design{
+    width: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: fit-content;
+    padding: 20px 15px;
+    margin: 0 20px;
+}
+
+#table_design th{
+    text-transform: uppercase;
+}
+
+#form_box{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: large;
+    font-family: 'Open Sans', sans-serif;
+    flex-direction: column;
+}
+
+#form_box td{
+    height: 40px;
+}
+
+#form_box th{
+    text-align: left;
+}
+
+#form_box input {
+    background-color: rgba(145, 144, 142, 0.253);
+    height: 30px;
+    font-size: 15px;
+}
+
+.update{
+    background-color: rgba(43, 161, 122, 0.822);
+    font-family: 'Open Sans', sans-serif;
+    font-size: 15px;
+}
+
+.delete{
+    background-color: rgba(161, 12, 12, 0.726);
+    font-family: 'Open Sans', sans-serif;
+}
+
+.update_link, .delete_link{
+    font-size: 15px;
+    font-family: 'Open Sans', sans-serif;
+    color: rgb(0, 0, 0);
+}
+
+#bank_header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#pass_submit{
+    padding: 0 25px;
+    background-color: rgba(0, 136, 169, 1);
+    border: 2.5px rgb(0, 0, 0) solid;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}

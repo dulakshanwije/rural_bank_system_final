@@ -1,0 +1,266 @@
+.req_container {
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 100px;
+  padding-bottom: 60px;
+  background-image: url(images/req_cover.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  min-height: 700px;
+
+}
+.req_container .single_req_container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.req_container .req_sort_status {
+  color: white;
+}
+
+.req_header {
+  /* background-color: #6e6160; */
+  width: 80%;
+  /* height: fit-content; */
+  display: flex;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.8);
+  color: black;
+  height: 120px;
+  /* margin: 20px 0; */
+  font-weight: 900;
+  /* padding: 10px 0; */
+  border-radius: 10px;
+  justify-content: space-between;
+}
+.req_header .icon_holder {
+  margin: 0 1.5%;
+  /* font-size: 20px; */
+  /* width: ; */
+  text-align: center;
+  /* word-wrap: break-word; */
+}
+.req_header .topic_holder {
+  width: 53%;
+  /* background-color: honeydew; */
+  height: 80%;
+  margin: 0 1.5%;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.req_header .topic_holder h3 {
+  height: fit-content;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100%;
+  /* padding: 5px 0; */
+}
+
+.req_header .topic_holder p {
+  margin: 3px 0;
+  color:rgb(78, 78, 78);
+}
+
+.req_header .status_holder {
+  width: 7%;
+  /* background-color: blue; */
+  height: 80%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 0 1.5%;
+  margin-left: 3%;
+}
+.req_header .req_header_right{
+  display: flex;
+  flex-direction: row;
+  width: 25%;
+  justify-content: space-between;
+  margin-right: 3%;
+}
+.req_header .status_holder i {
+  font-size: 40px;
+}
+
+.req_header .btn_holder {
+  /* width: 5%; */
+  /* background-color: blueviolet; */
+  height: 80%;
+  margin-left: 1.5%;
+  margin-right: 3%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.topic_holder .req_category {
+  color: black;
+  /* background-color: rgb(134, 93, 98); */
+  background-color: transparent;
+  padding: 2px 4px;
+  border-radius: 5px;
+  border:2px solid black;
+}
+
+.req_reply {
+  width: 80%;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+}
+.req_reply form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.req_reply .req_customer_details {
+  width: 80%;
+  text-align: left;
+  margin: 20px 0;
+}
+
+.req_reply .req_customer_details .req_customer_info {
+  display: flex;
+  flex-direction: row;
+}
+
+.req_reply .req_customer_details .req_customer_info p {
+  margin-right: 10px;
+}
+
+.req_reply .req_customer_details .req_customer_info p:not(:first-child)::before {
+  content: " | ";
+}
+
+.req_reply .reply_textarea {
+  width: 100%;
+  
+}
+
+.req_reply .reply_textarea textarea {
+  width: 80%;
+  color: white;
+  background-color: transparent;
+  border: 1.5px solid white;
+  border-radius: 0;
+  padding: 10px;
+  margin: 5px 0;
+  height: auto;
+  resize: none;
+  font-family: "Open Sans", sans-serif;
+  font-size: 14px;
+}
+
+.req_reply .reply_radio_btn {
+  width: 60%;
+  padding: 15px;
+}
+.req_reply .reply_submit_btn {
+  width: 85%;
+  padding: 15px;
+}
+.req_reply .reply_submit_btn button {
+
+  padding: 10px 20px;
+
+  background-color: transparent;
+  color: white;
+  border: 1px solid white;
+  padding: 13px 40px;
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: 14px;
+  letter-spacing: 2px;
+  border-radius: 25px;
+  font-family: "Open Sans", sans-serif;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 720px) {
+  .req_header {
+    width: 95%;
+    height: auto;
+  }
+  .req_reply {
+    width: 95%;
+  }
+  /* .req_header .status_holder{
+    display: none;
+  } */
+  .req_header .status_holder i {
+    font-size: 30px;
+  }
+
+  .req_header .req_header_right{
+    flex-direction: column;
+    width: 10%;
+    /* margin-right: 3%; */
+  }
+
+  .req_header .status_holder .req_status_txt {
+    display: none;
+  }
+
+  .req_header .icon_holder .req_range_txt {
+    display: none;
+  }
+  .req_header .btn_holder .req_more_txt {
+    display: none;
+  }
+  .req_reply .reply_submit_btn {
+    width: 100%;
+    padding: 15px;
+  }
+  .req_reply .reply_submit_btn button {
+    width: 100%;
+    padding: 10px 20px;
+  }
+  .req_reply .reply_textarea {
+    width: 100%;
+    padding: 15px;
+  }
+  .req_reply .reply_textarea textarea {
+    width: 100%;
+  }
+
+  .req_header .topic_holder{
+    width: 70%;
+    padding: 10px 0;
+  }
+
+  .req_header .topic_holder h3 {
+    height: fit-content;
+    overflow: hidden;
+  }
+
+  .req_reply .req_customer_details .req_customer_info {
+    flex-direction: column;
+  }
+  
+  .req_reply .req_customer_details .req_customer_info p {
+    margin-right: 0px;
+  }
+
+  .req_reply .req_customer_details .req_customer_info p:not(:first-child)::before {
+    content: none;
+  }
+}

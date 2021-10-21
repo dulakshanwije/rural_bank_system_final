@@ -1,0 +1,120 @@
+    .table-container{
+        /* padding-top: 40px; */
+        margin: 40px auto 0;
+        /* padding: 0 10%; */
+        /* z-index: 0; */
+    }
+
+    table {
+        margin-top: 50px;
+        color: antiquewhite;
+        /* display: flex;
+        align-items: center;
+        justify-content: center; */
+        height: auto;
+        width: 90%;
+        border-collapse: collapse;
+        /* left: 50%;
+        position: absolute;
+        top: 50%;
+        transform: translate(-50%, -50%); */
+    }
+    
+    tr {
+        transition: all .2s ease-in;
+        cursor: pointer;
+    }
+    
+    .table th {
+        padding: 12px;
+        text-align: center;
+        background-color: rgb(35, 40, 43);
+        vertical-align: middle;
+        border: 0.5px solid rgb(255, 255, 255);
+    }
+    
+    .table td {
+        padding: 12px;
+        text-align: center;
+        background-color: rgb(27, 56, 70);
+        vertical-align: middle;
+        border: 0.5px solid rgb(255, 255, 255);
+    }
+
+    .table .text_status{
+        font-weight: bold;
+        color: rgb(185, 203, 216);
+    }
+
+    .table .updt_btn{
+        width: 120px;
+        text-decoration: none;
+        text-align: center;
+        line-height: 30px;
+        display: inline-block;
+        background-color: rgb(17, 146, 97);
+        color: rgb(255, 255, 255);
+    }
+
+    .table .dlt_btn{
+        width: 120px;
+        text-decoration: none;
+        text-align: center;
+        line-height: 30px;
+        display: inline-block;
+        background-color: rgb(184, 70, 42);
+        color: rgb(255, 255, 255);
+    }
+    
+    tbody tr:hover {
+        background-color: rgb(138, 128, 128);
+        transform: scale(1.02);
+        box-shadow: 2px 2px 12px rgba(29, 47, 95, 0.534), -1px -1px 8px rgba(138, 128, 128, 0.342);
+    }
+    .btn-container{
+        /* position: absolute; */
+        /* position: fixed; */
+        width: 90%;
+        margin: 20px;
+    }
+
+    .btn-container button{
+        float: right;
+    }
+    
+    @media (max-width: 768px){
+        /* .table{
+            margin-top: 1000px;
+        } */
+        /* .table-container{
+            font-size: 14px;
+        } */
+        .table thead{
+            display: none;
+        }
+        .table, .table tbody, .table tr, .table td{
+            display: block;
+        }
+        .table tr{
+            margin-bottom: 20px;
+        }
+        .table tbody tr td{
+            text-align: right;
+            padding-left: auto;
+            position: relative;
+        }
+        .table td:before{
+            content: attr(d_lbl);
+            position: absolute;
+            left: 0;
+            width: fit-content;
+            padding-left: 15px;
+            font-weight: 600;
+            text-align: left;
+        }
+        .table p {
+            margin-left: 50%;
+            word-wrap:break-word;
+            /* margin-right: 5px; */
+        }
+    }

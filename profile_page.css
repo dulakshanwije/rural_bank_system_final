@@ -1,0 +1,267 @@
+.main_profile_container{
+    display: flex;
+    flex-direction: column;
+    /* background-color: red; */
+    align-items: center;
+    padding: 20px 0px;
+    padding-top: 100px;
+    background-image: url(images/profile.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.profile_details{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 60%;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 10px;
+}
+
+.profile_btn_container{
+    width: 60%;
+    display: inline-grid;
+    grid-template-columns: auto auto auto;
+    grid-column-gap:50px ;
+    /* display: flex;
+    flex-direction: row;
+    justify-content: space-around; */
+    margin: 20px 0px;
+}
+
+.profile_btn_container button {
+    color: white;
+    padding: 10px 10px;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: 2px;
+    border-radius: 25px;
+    font-family: "Open Sans", sans-serif;
+    margin: 20px 0;
+    cursor: pointer;
+}
+
+.profile_btn_container .update_btn {
+    background-color: #2a7575;
+    border: 1px solid #2a7575;
+}
+.profile_btn_container .delete_btn {
+    background-color: #9c1809;
+    border: 1px solid #9c1809;
+}
+.profile_btn_container .active_btn {
+    background-color: #499c65;
+    border: 1px solid #499c65;
+}
+.profile_btn_container .deactive_btn {
+    background-color: #b34132;
+    border: 1px solid #b34132;
+} 
+
+.profile_btn_container .profile_btn_disable{
+  color: white;
+  background-color: transparent;
+  border: 3px solid #9c1809;
+}
+
+/* Test........... */
+.user_bank_details {
+    width: 80%;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 10px;
+  }
+  
+  .menu_tab_container {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-around; */
+    height: 300px;
+    /* padding-top: 10px; */
+    margin-top: 10px;
+    border-right: 2px solid black;
+  }
+  
+  .tab_btn {
+    height: 40px;
+    margin-left: 10px;
+    color: black;
+    width: 80%;
+    border: 2px solid black;
+    background-color: rgba(255, 255, 255, 0.7);
+  }
+  .tab_add_icon {
+    width: 20%;
+    color: black;
+    font-size: 30px;
+    vertical-align: middle;
+    text-align: center;
+  }
+  
+  .menu_btn_holder {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 2px solid black;
+    padding: 10px 0;
+  }
+  
+  .tab_btn_active {
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+  }
+  
+  .menu_details_container {
+    margin-top: 10px;
+    width: 70%;
+    color: black;
+    overflow: auto;
+    height: 300px;
+  }
+  .loan_details {
+    display: block;
+    padding: 10px;
+  }
+  
+  .mortgage_details {
+    display: none;
+    padding: 10px;
+  }
+  
+  .savings_details {
+    display: none;
+    padding: 10px;
+  }
+
+  .profile_delete_confirm{
+    position:absolute;
+    top: 53%;
+    z-index: 1;
+    color: white;
+    background-color:#9c1809;
+    padding: 20px;
+    padding-top: 0;
+    text-align: center;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+  }
+  .profile_delete_confirm p{
+    font-size: 14px;
+    margin: 10px 0;
+  }
+  .profile_delete_confirm h3{
+    margin-top: 20px;
+  }
+  .profile_delete_confirm input{
+    padding: 10px;
+    margin: 10px 0;
+    width: 100%;
+  }
+  .profile_delete_confirm input[type = 'submit']{
+    width: 60%;
+    padding: 10px;
+    margin: 10px 0;
+  }
+  .profile_delete_confirm span{
+    position:absolute;
+    right: 4px;
+    font-size: 25px;
+  }
+  .profile_active_confirm {
+    background-color: #a18b57;
+  }
+  /* .profile_delete_confirm i{
+    fon
+  } */
+
+/* Test........... */
+
+
+
+
+@media screen and (max-width:720px) {
+    .profile_details {
+        width: 80%;
+    }
+    .profile_btn_container{
+        width: 60%;
+        display: flex;
+        flex-direction: column;
+    }
+    .profile_btn_container button {
+        margin: 10px 0;
+    }
+
+    .bank-columns-container {
+        padding-top: 0;
+    }
+
+    .profile_details td:nth-child(2){
+        display: none;
+    }
+
+    /* Test........... */
+    .menu_btn_holder {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+      }
+
+      .user_bank_details {
+        width: 90%;
+        flex-direction: column;
+        /* align-items: center; */
+        /* justify-content: center; */
+        /* margin: 0; */
+        margin-top: 10px;
+        border-radius: 10px;
+      }
+      .menu_tab_container {
+        width: 100%;
+        flex-direction: row;
+        height: fit-content;
+        align-items: center;
+        justify-content: space-around;
+        padding: 0;
+        margin: 0;
+        border: none;
+        /* border-radius: 10px; */
+      }
+    
+      .tab_btn {
+        width: 100%;
+        margin: 0;
+        border:none;
+      }
+      #tab_btn_loan{
+        border-top-left-radius: 10px;
+      }
+      #tab_btn_mortgages{
+        border-top-right-radius: 10px;
+      }
+
+      .tab_add_icon {
+        font-size: 30px;
+      }
+    
+      .menu_details_container {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    /* Test........... */
+
+}

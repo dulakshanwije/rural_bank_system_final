@@ -1,0 +1,1019 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: "Open Sans", sans-serif;
+}
+/* PC Navigation Bar Goes Here */
+.nav-pc-part {
+  background-color: rgb(57, 48, 49);
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+}
+.nav-pc-part .pc-signin {
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  align-items: center;
+  background-color: rgb(57, 48, 49);
+  right: 10px;
+  width: 400px;
+  z-index: 1;
+}
+.nav-pc-part .pc-signin {
+  /* box-shadow: 0 -4px 8px 0 rgba(255, 255, 255, 0.4), 0 6px 20px 0 rgba(255, 255, 255, 0.7); */
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
+}
+
+.pc-signin h3 {
+  text-align: center;
+  background-color: rgb(57, 48, 49);
+  color: white;
+  padding: 14px 16px;
+}
+
+.pc-signin p {
+  color: white;
+}
+
+.pc-signin select {
+  background-color: rgb(57, 48, 49);
+  color: white;
+  width: 80%;
+  padding: 14px 16px;
+  font-size: 17px;
+  margin: 10px;
+}
+
+.pc-signin input[type="button"] {
+  background-color: rgb(57, 48, 49);
+  color: white;
+  width: 60%;
+  padding: 14px 16px;
+  font-size: 17px;
+  margin: 10px;
+  border: 2px solid white;
+  border-radius: 30px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.pc-signin input[type="button"]:hover {
+  background-color: white;
+  color: #333;
+  transition: all 0.2s ease-in;
+}
+
+.topnavbar {
+  /* background-color: aquamarine; */
+  padding: 5px 0;
+  width: 95%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.topnavbar a {
+  font-size: 20px;
+  text-decoration: none;
+  color: white;
+  font-weight: 400;
+  padding: 0px;
+  margin: 0 20px;
+}
+
+.topnavbar .nav-col-75 a:hover {
+  padding-bottom: 1px;
+  border-bottom: 2px aquamarine solid;
+  color: aquamarine;
+}
+.nav-col-75 {
+  width: 75%;
+}
+
+.nav-col-25 {
+  width: 25%;
+  margin: 0;
+  height: 60px;
+}
+.nav-col-25 img {
+  /* width: 25%; */
+  height: 60px;
+}
+.nav-menu {
+  height: 40px;
+  display: flex;
+  flex-direction: row;
+  /* justify-content: space-between; */
+  float: right;
+}
+.nav-menu .active {
+  border-bottom: 2px aquamarine solid;
+  color: aquamarine;
+}
+.nav-menu .menu-item-txt {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+.nav-menu .menu-item-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  margin-left: 10px;
+  background-color: #333;
+  border: 2px solid white;
+  color: white;
+  border-radius: 30px;
+  font-family: "Open Sans", sans-serif;
+  font-size: 17px;
+  height: auto;
+  width: max-content;
+  text-transform: uppercase;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.nav-menu .menu-item-btn:hover {
+  background-color: white;
+  color: #333;
+  transition: all 0.2s ease-in;
+}
+
+/* Showcase Styles Goes Here */
+.showcase {
+  background-image: url(images/banking.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 1;
+  visibility: inherit;
+  width: 100%;
+  height: 700px;
+  color: white;
+}
+.showcase-content {
+  /* background-color: brown; */
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+}
+.showcase-content h1 {
+  text-align: center;
+  font-size: 70px;
+  font-weight: bolder;
+  text-transform: uppercase;
+}
+
+.showcase-content h4 {
+  font-size: 18px;
+  margin: 10px 0;
+  font-weight: 400;
+}
+.showcase-content button {
+  margin-top: 80px;
+  font-size: 14px;
+  padding: 10px 20px;
+  border: 2px solid white;
+  border-radius: 30px;
+  background-color: white;
+  text-transform: uppercase;
+  font-family: "Open Sans", sans-serif;
+  letter-spacing: 2px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.showcase-content button:hover {
+  background-color: transparent;
+  border: 2px solid white;
+  color: white;
+  cursor: pointer;
+  transition: all 0.2s ease-in;
+}
+
+/* Responsive Navigation Bar Goes Here */
+.nav-responsive-part {
+  display: none;
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+}
+
+.topnavbar-res {
+  background-color: #333;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  /* border: 2px solid white; */
+}
+.user-icon {
+  color: white;
+  margin-right: 10px;
+  margin-top: 5px;
+  font-size: 25px;
+  border-left: 2px solid white;
+  padding: 10px;
+  padding-left: 20px;
+  margin-bottom: 5px;
+}
+.menu-icon {
+  color: white;
+  margin-left: 10px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  font-size: 25px;
+  border-right: 2px solid white;
+  padding: 10px;
+  padding-right: 20px;
+}
+
+.menu-logo img {
+  height: 50px;
+  /* margin-right: 10px; */
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.dropdown-menu {
+  background-color: #333;
+  width: 100%;
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  z-index: 1;
+}
+.dropdown-menu a {
+  padding: 14px 16px;
+  background-color: #333;
+  text-decoration: none;
+  color: white;
+  font-size: 17px;
+}
+.dropdown-signin {
+  width: 100%;
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  align-items: center;
+  background-color: #333;
+  /* z-index: 1; */
+}
+.dropdown-signin h3 {
+  text-align: center;
+  background-color: #333;
+  color: white;
+  padding: 14px 16px;
+}
+
+.dropdown-signin p {
+  color: white;
+}
+
+.dropdown-signin select {
+  background-color: #333;
+  color: white;
+  width: 80%;
+  padding: 14px 16px;
+  font-size: 17px;
+  margin: 10px;
+}
+.dropdown-signin input[type="button"] {
+  background-color: #333;
+  color: white;
+  width: 60%;
+  padding: 14px 16px;
+  font-size: 17px;
+  margin: 10px;
+  border: 2px solid white;
+  border-radius: 30px;
+  cursor: pointer;
+}
+.dropdown-signin input[type="button"]:hover {
+  background-color: white;
+  color: #333;
+  transition: all 0.2s ease-in;
+}
+/* Content Box Brown Styles Goes Here */
+
+.content-box-brown {
+  text-align: center;
+  background-color: rgb(57, 48, 49);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 350px;
+}
+.content-box-brown h4 {
+  margin-top: 20px;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.content-box-brown h1 {
+  font-size: 40px;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+}
+
+/* Bank counts goes here */
+
+.flex-container {
+  background-image: url("images/bg-2.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: row;
+  font-size: 30px;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  padding: 100px 0px 70px;
+}
+.flex-items {
+  margin: auto;
+  width: 30%;
+  /* background-color: aqua; */
+  padding: 10px;
+  padding: 25px 30px;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.flex-items h2 {
+  color: #03a9f4;
+  font-weight: 500;
+  line-height: 1.1;
+  margin-bottom: 10px;
+}
+.flex-items h5 {
+  font-weight: 300;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+/* About styles goes here */
+
+.about-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  background-color: rgb(57, 48, 49);
+}
+.about-col-70 {
+  width: 70%;
+  text-align: center;
+}
+.about-container h1,
+.about-container h2 {
+  margin: 30px auto;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+}
+.about-row h1 {
+  font-size: 40px;
+}
+.about-row p {
+  text-align: center;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+}
+.vision-mission-row {
+  display: flex;
+  flex-direction: row;
+  padding-bottom: 40px;
+}
+
+.vision-mission-row h2 {
+  text-align: center;
+}
+
+.vision-txt {
+  width: 50%;
+  padding: 10px;
+  text-align: left;
+  max-width: 800px;
+  margin-left: 20px;
+}
+.mission-txt {
+  width: 50%;
+  padding: 10px;
+  text-align: left;
+  max-width: 800px;
+  margin-right: 20px;
+}
+
+/* Blue Content Box (using more than 1 time) */
+.content-box-blue {
+  text-align: center;
+  padding: 50px 0px;
+  color: white;
+  background-color: #1e3f4e;
+}
+.content-box-blue h1 {
+  margin: 0px 20px;
+  font-size: 40px;
+  font-weight: 500;
+  font-family: "Open Sans", sans-serif;
+}
+.content-box-blue button {
+  margin-top: 30px;
+  font-size: 14px;
+  padding: 10px 20px;
+  border: 2px solid white;
+  border-radius: 30px;
+  background-color: white;
+  text-transform: uppercase;
+  font-family: "Open Sans", sans-serif;
+  letter-spacing: 2px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.content-box-blue button:hover {
+  background-color: transparent;
+  border: 2px solid white;
+  color: white;
+  cursor: pointer;
+  transition: all 0.2s ease-in;
+}
+/* Services Styles Goes Here*/
+
+/* Create two equal columns that floats next to each other */
+.column {
+  display: flex;
+  float: left;
+  width: 50%;
+  padding: 10px;
+  flex-direction: row;
+  height: 125px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.services-section {
+  overflow: hidden;
+  background-color: #333;
+  color: #f1f1f1;
+  padding-bottom: 30px;
+}
+.services-section h1 {
+  text-align: center;
+}
+
+.section-info-container {
+  padding-bottom: 300px;
+}
+
+.section-info .col-25 {
+  width: 25%;
+}
+.section-info .col-75 {
+  width: 75%;
+}
+.services-icons {
+  font-size: 50px;
+  text-align: center;
+  margin: 0 auto;
+  padding-right: 15px;
+  color: #03a9f4;
+}
+
+.services-section .section-title {
+  margin: 0 0 40px;
+  padding: 20px 0px;
+}
+.services-section .section-title center {
+  font-weight: 400;
+  font-size: 14px;
+  margin-top: 20px;
+}
+.services-section .section-title h1 {
+  font-weight: 300;
+  font-size: 40px;
+  letter-spacing: 1px;
+}
+.services-section .section-info {
+  background-color: black;
+}
+.services-section .section-info p {
+  font-weight: 300;
+  font-size: 13px;
+  letter-spacing: 1px;
+  line-height: 24px;
+}
+.services-section .section-info h3 {
+  font-weight: 700;
+  font-size: 18px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* Utility Classes Goes Here */
+
+.gap {
+  display: block;
+  height: 60px;
+}
+.blue-colored-text {
+  color: #03a9f4;
+}
+.border-line {
+  width: 40px;
+  height: 1px;
+  margin-top: 20px;
+  display: block;
+  text-align: center;
+  background-color: #03a9f4;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.error {
+  background: rgba(148, 7, 7, 0.74);
+  color: rgb(192, 184, 181);
+  padding: 5px 0px;
+  width: 80%;
+  border-radius: 5px;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+/* Contact Form Styles */
+.contact-section {
+  width: 100%;
+  /* height: 700px; */
+  background-image: url(images/contact.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.contact-section h4 {
+  margin: 20px 0;
+  color: #fff;
+  font-weight: 300;
+  font-style: italic;
+  font-size: 18px;
+}
+
+.contact-icon-set {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.contact-icon-set .contact-icon {
+  margin: 30px;
+}
+.contact-icon-set .contact-icon i {
+  margin: 20px 0;
+  color: #fff;
+  font-size: 40px;
+}
+
+.contact-form-container {
+  padding-bottom: 50px;
+}
+
+.contact-form {
+  background-color: rgba(0, 0, 0, 0.5);
+  margin: auto;
+  width: 500px;
+}
+.contact-form-title {
+  margin: auto;
+}
+.contact-form h3 {
+  font-weight: 700;
+  color: #fff;
+  text-transform: uppercase;
+  text-align: center;
+  padding-top: 20px;
+}
+
+.contact-form .contact-form-inputs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+}
+.contact-form .contact-form-inputs .contact-txt {
+  background-color: transparent;
+  border: 1.5px solid white;
+  border-radius: 0;
+  padding: 10px;
+  margin: 5px 0;
+  width: 80%;
+  font-family: "Open Sans", sans-serif;
+  font-size: 14px;
+  color: white;
+}
+.contact-form .contact-form-inputs .bank-form-lable-txt {
+  background-color: transparent;
+  border-radius: 0;
+  padding-left: 10%;
+  width: 100%;
+  font-family: "Open Sans", sans-serif;
+  font-size: 14px;
+  color: white;
+  margin-top: 10px;
+}
+.contact-form .bank-form-head-txt{
+  color: white;
+  background-color: transparent;
+  width: 80%;
+  height: auto;
+  resize: none;
+  font-family: "Open Sans", sans-serif;
+  font-size: 14px;
+  text-align: center;
+  padding-top: 15px;
+}
+
+.contact-form .contact-form-inputs .contact-txtarea {
+  color: white;
+  background-color: transparent;
+  border: 1.5px solid white;
+  border-radius: 0;
+  padding: 10px;
+  margin: 5px 0;
+  width: 80%;
+  height: auto;
+  resize: none;
+  font-family: "Open Sans", sans-serif;
+  font-size: 14px;
+}
+
+.contact-form .contact-form-inputs .contact-btn {
+  background-color: transparent;
+  color: white;
+  border: 1px solid white;
+  padding: 13px 40px;
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: 14px;
+  letter-spacing: 2px;
+  border-radius: 25px;
+  font-family: "Open Sans", sans-serif;
+  margin: 40px 0;
+  cursor: pointer;
+}
+
+.contact-form .contact-form-inputs .contact-btn:hover {
+  background-color: white;
+  /* border: 2px solid white; */
+  color: black;
+  cursor: pointer;
+  transition: all 0.2s ease-in;
+}
+
+/* Footer Styles Goes Here */
+
+.footer {
+  text-align: center;
+  padding: 30px 0px;
+  color: white;
+  background-color: #1e3f4e;
+}
+.footer h1 {
+  font-size: 30px;
+  font-family: "Open Sans", sans-serif;
+}
+.footer button {
+  margin-top: 30px;
+  font-size: 14px;
+  padding: 10px 20px;
+  border: 2px solid white;
+  border-radius: 30px;
+  background-color: white;
+  text-transform: uppercase;
+  font-family: "Open Sans", sans-serif;
+  letter-spacing: 2px;
+  font-weight: 400;
+  cursor: pointer;
+}
+.footer button:hover {
+  background-color: transparent;
+  border: 2px solid white;
+  color: white;
+  cursor: pointer;
+  transition: all 0.2s ease-in;
+}
+.footer .footer-icons p {
+  font-size: 20px;
+  margin: 30px 0px;
+}
+
+.footer .footer-icons i {
+  margin: 0 5px;
+}
+.footer p {
+  font-size: 14px;
+  color: whitesmoke;
+}
+.footer a {
+  text-decoration: none;
+}
+
+/* Bank Home Body */
+
+.bank-home-container {
+  background-image: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.7),
+      rgba(0, 0, 0, 0.5)
+    ),
+    url("images/banner2.jpg");
+  /* background-image: url(images/banner2.jpg); */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: auto;
+  padding-top: 100px;
+}
+
+.bank-img-container {
+  width: 100%;
+  height: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+.bank-img-container .bank-image-txt-holder {
+  width: 50%;
+  text-align: center;
+  /* margin-top: 8%; */
+  /* margin-left: 5%; */
+}
+
+.bank-image-txt-holder h4 {
+  font-size: 30px;
+  margin: 5px 0;
+}
+
+.bank-image-txt-holder p {
+  margin: 20px 0;
+}
+
+.bank-image-txt-holder button {
+  background-color: rgba(255, 255, 255, 0.8);
+  color: black;
+  border: 1px solid black;
+  padding: 10px 30px;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 2px;
+  border-radius: 25px;
+  font-family: "Open Sans", sans-serif;
+  margin: 20px 0;
+  cursor: pointer;
+}
+.bank-image-txt-holder button:hover {
+  transition: all 0.2s ease-in;
+  background-color: #03a9f4;
+}
+
+.bank-columns-container {
+  background-size: cover;
+  display: flex;
+  text-align: center;
+  justify-content: space-between;
+  padding: 60px 0px 70px;
+  /* background-image: url("images/bg-2.jpg"); */
+  /* height: fit-content; */
+  /* flex-direction: row; */
+  /* justify-content: center; */
+}
+.bank-columns-items {
+  margin: 0 auto;
+  box-sizing: border-box;
+  flex-basis: 30%;
+  padding: 10px;
+  padding: 25px 30px;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+.bank-columns-items h5 {
+  font-size: 20px;
+  color: #03a9f4;
+}
+
+.bank-columns-items p {
+  margin: 20px 0px;
+}
+.bank-columns-items button {
+  background-color: #03a9f4;
+  border: 1px solid #03a9f4;
+  color: black;
+  padding: 10px 30px;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 2px;
+  border-radius: 25px;
+  font-family: "Open Sans", sans-serif;
+  margin: 20px 0;
+  cursor: pointer;
+}
+.bank-columns-items button:hover {
+  transition: all 0.2s ease-in;
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid #03a9f4;
+  /* color: #03a9f4; */
+  color: black;
+}
+/* Bank Manage Customer */
+.bank_search_bar {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+#bank-btn {
+  background-color: rgba(255, 255, 255, 0.8);
+  color: black;
+  border: 1px solid black;
+  padding: 10px;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: 1px;
+  border-radius: 10px;
+  font-family: "Open Sans", sans-serif;
+  margin: 20px 0;
+  cursor: pointer;
+  width: 60px;
+}
+#bank-search {
+  background-color: rgba(255, 255, 255, 0.8);
+  color: black;
+  border: 1px solid black;
+  padding: 10px;
+  font-weight: 600;
+  font-size: 16px;
+  border-radius: 10px;
+  font-family: "Open Sans", sans-serif;
+  margin: 20px 0;
+  width: 70%;
+}
+.bank_search_results {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.8);
+  color: black;
+  height: 200px;
+  margin: 20px 0;
+  font-weight: 900;
+  padding: 10px 0;
+  border-radius: 10px;
+  overflow-y: auto;
+}
+.bank_search_results p {
+  margin: 5px 0;
+}
+.bank_search_results a {
+  color: #333;
+  text-decoration: none;
+  /* margin: 0; */
+}
+.bank_search_results a:hover {
+  /* color: #333;
+  text-decoration: none; */
+  /* margin: 0; */
+  border-bottom: 2px solid #333;
+}
+
+/* Responsive Media Queries */
+
+@media screen and (max-width: 820px) {
+  .topnavbar a {
+    font-size: 16px;
+  }
+  .topnavbar .menu-item-btn {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 770px) {
+  .topnavbar a {
+    font-size: 14px;
+  }
+  .topnavbar .menu-item-btn {
+    font-size: 14px;
+    cursor: pointer;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  /* Bank Search Bar */
+
+  .bank_search_bar {
+    flex-direction: column;
+  }
+  #bank-search {
+    width: 100%;
+  }
+  #bank-btn {
+    margin: 0;
+    width: 50%;
+  }
+  #bank-btn:after {
+    content: " SEARCH";
+  }
+  /* @media screen and (max-width:600px){ */
+  /* Navigation Bar */
+  .nav-responsive-part {
+    display: block;
+  }
+  .nav-pc-part {
+    display: none;
+  }
+
+  /*Bank Counts*/
+  .flex-container {
+    flex-direction: column;
+  }
+  .flex-items {
+    width: 90%;
+    margin: 2%;
+  }
+
+  /* About Responsive Styles*/
+  .vision-mission-row {
+    flex-direction: column;
+    text-align: center;
+    /* justify-content: center; */
+    align-items: center;
+  }
+  .vision-txt {
+    width: 100%;
+    text-align: center;
+  }
+  .mission-txt {
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Services */
+  .column {
+    width: 100%;
+    height: auto;
+  }
+  /* Contacts Form */
+  .contact-icon-set {
+    flex-direction: column;
+  }
+  .contact-form {
+    width: 100%;
+  }
+
+  /* Bank Home Body */
+
+  /* .bank-img-container {
+        align-items: center;
+        text-align: center;
+    } */
+  .bank-img-container .bank-image-txt-holder {
+    width: 80%;
+  }
+  .bank-columns-container {
+    align-items: center;
+    flex-direction: column;
+  }
+  .bank-columns-items {
+    width: 90%;
+    margin: 2%;
+  }
+
+  .contact-section {
+    width: 100%;
+  }
+}

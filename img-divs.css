@@ -1,0 +1,102 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', sans-serif;
+} */
+
+.customer-home-container{
+    padding-top: 70px;
+}
+
+
+.image-div-container{
+    width: 100%;
+    height: 300px;
+    background-size: cover;
+    background-repeat:no-repeat;
+    background-position: center;
+    display: flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    color: white;
+    /* background-color: rgba(0,0,0,0.8); */
+}
+.image-1{
+    background-image:linear-gradient(to left, rgba(0,0,0,0.7), rgba(0,0,0,0.5)),url("images/banner4.jpg");
+}
+
+.image-2{
+    background-image:linear-gradient(to right, rgba(0,0,0,0.7), rgba(0,0,0,0.5)),url("images/banner2.jpg");
+}
+.image-3{
+    background-image:linear-gradient(to left, rgba(0,0,0,0.7), rgba(0,0,0,0.5)),url("images/banner3.jpg");
+}
+.image-4{
+    background-image:linear-gradient(to left, rgba(0,0,0,0.7), rgba(0,0,0,0.5)),url("images/banner2.jpg");
+}
+
+.image-div-container .image-div-holder{
+    width: 80%;
+    display: flex;
+    flex-direction:column;
+    justify-content:center;
+}
+.image-div-container .flex-right {
+    align-items:flex-end;
+}
+
+.image-div-container .flex-left{
+    align-items:flex-start;
+}
+
+.image-div-container .image-div-txt-holder {
+    max-width: 300px;
+    text-align: center;
+}
+.image-div-txt-holder h4{
+    font-weight: 300;
+    font-size: 20px;
+    letter-spacing: 1px;
+}
+.image-div-txt-holder p{
+    text-align: center;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+}
+.image-div-txt-holder button {
+    margin-top: 20px;
+    font-size: 14px;
+    padding: 10px 20px;
+    border: 2px solid white;
+    border-radius: 30px;
+    background-color: white;
+    text-transform: uppercase;
+    font-family: 'Open Sans', sans-serif;
+    letter-spacing: 2px;
+    font-weight: 700;
+}
+.image-div-txt-holder button:hover{
+    background-color: transparent;
+    border: 2px solid white;
+    color: white;
+    cursor: pointer;
+    transition:all 0.2s ease-in;
+}
+
+/* Utility */
+
+/* .blue-colored-text {
+    color: #03a9f4;
+} */
+
+@media screen and (max-width:720px) {
+    .image-div-container .flex-left, .image-div-container .flex-right{
+        align-items: center;
+    }
+}

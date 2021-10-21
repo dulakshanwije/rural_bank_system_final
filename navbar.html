@@ -1,0 +1,59 @@
+<!-- Navigation Bar -->
+<div class="nav-pc-part">
+    <div class="topnavbar">
+        <div class="nav-col-25">
+            <a href="index.html"><img src="images/rbs_logo.png" alt="logo"></a>
+        </div>
+        <div class="nav-col-75">
+            <div class="nav-menu">
+                <a href="javascript:void(0);" onclick="scrolltoShowcase()" class="menu-item-txt active"
+                    id="topnav-home">Home</a>
+                <a href="javascript:void(0);" onclick="scrolltoAbout()" class="menu-item-txt"
+                    id="topnav-about">About</a>
+                <a href="javascript:void(0);" onclick="scrolltoServices()" class="menu-item-txt">Services</a>
+                <a href="javascript:void(0);" onclick="scrolltoContacts()" class="menu-item-txt"
+                    id="topnav-contact">Contacts</a>
+                <button class="menu-item-btn" id="pc-signin-btn" onclick="myFunction3()">Login as</button>
+            </div>
+        </div>
+    </div>
+    <div class="pc-signin" id="pc-signin">
+        <h3>Sign in as :</h3>
+        <select name="mode" id="mode_pc">
+            <option value="1">Customer</option>
+            <option value="2">Banker</option>
+            <option value="3">Administrator</option>
+        </select>
+        <input type="button" value="Sign In" onclick="login_selector_pc()">
+    </div>
+</div>
+
+<div class="nav-responsive-part">
+    <div class="topnavbar-res">
+        <div onclick="myFunction()" id="menu-icon-btn">
+            <i class="fas fa-bars menu-icon" id="menu-icon"></i>
+        </div>
+        <div class="menu-logo">
+            <a href="index.html"><img src="images/rbs_logo.png" alt=""></a>
+        </div>
+        <div onclick="myFunction2()" id="user-icon-btn">
+            <i class="fas fa-user user-icon" id="user-icon"></i>
+        </div>
+    </div>
+    <div class="dropdown-menu" id="dropdown-menu">
+        <a href="javascript:void(0);" onclick="scrolltoShowcase()">Home</a>
+        <a href="javascript:void(0);" onclick="scrolltoAbout()">About</a>
+        <a href="javascript:void(0);" onclick="scrolltoServices()">Services</a>
+        <a href="javascript:void(0);" onclick="scrolltoContacts()">Contacts</a>
+        <a href="#">Login as</a>
+    </div>
+    <div class="dropdown-signin" id="dropdown-signin">
+        <h3>Sign in as :</h3>
+        <select name="mode" id="mode_res">
+            <option value="1">Customer</option>
+            <option value="2">Banker</option>
+            <option value="3">Administrator</option>
+        </select>
+        <input type="button" value="Sign In" onclick="login_selector_res()">
+    </div>
+</div>
