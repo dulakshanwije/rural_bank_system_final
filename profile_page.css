@@ -105,6 +105,10 @@
     vertical-align: middle;
     text-align: center;
   }
+
+  .tab_add_icon a{
+    color: inherit;
+  }
   
   .menu_btn_holder {
     display: flex;

@@ -33,12 +33,17 @@ if (isset($_POST['customer_acc_no']) && isset($_POST['customer_password'])) {
                 header("Location: customer_removed_alert.html");
             }
             else {
-                $_SESSION["current_acc"] = $res["customer_nic"];
-                $_SESSION["current_customer"] = $res["customer_first_name"]." ".$res["customer_last_name"];
-                $_SESSION["current_customer_email"] = $res["customer_email"];
-                $_SESSION["current_customer_bank"] = $res["customer_bank_id"];
-                
-                header("Location: customer_home.php");
+                if($res["customer_account_status"] == 'Deactive'){
+                    header("Location: customer_deactive_alert.html");
+                }
+                else{
+                    $_SESSION["current_acc"] = $res["customer_nic"];
+                    $_SESSION["current_customer"] = $res["customer_first_name"]." ".$res["customer_last_name"];
+                    $_SESSION["current_customer_email"] = $res["customer_email"];
+                    $_SESSION["current_customer_bank"] = $res["customer_bank_id"];
+                    
+                    header("Location: customer_home.php");
+                }
             }
         }
         else {
