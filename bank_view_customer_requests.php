@@ -280,10 +280,21 @@ if(mysqli_num_rows($resultset)){
                         </div>
                         <br>
                         <p><i class="far fa-comment-alt"></i> '.$res["customer_request_info"].'</p>
+                        ';
+                        $text_area_placeholder;
+                        if($res["bank_reply"] != null){
+                            $text_area_placeholder = "Change your previous reply.";
+                            echo '<p style = "margin:10px 0;"><i class="fas fa-sign-out-alt"></i> '.$res["bank_reply"].'</p>';
+                        }
+                        else{
+                            $text_area_placeholder = "Type your message to customer";
+                            echo '<p style = "margin:10px 0;"><i class="fas fa-sign-out-alt"></i> You didn\'t reply yet.</p>';
+                        }
+                        echo '
                 </div>
                 <form action = "bank_customer_requests_processor.php?req_id='.$res['customer_request_id'].'" method = "POST">
                     <div class="reply_textarea">
-                        <textarea placeholder="Type your message to customer" name="reply_message" id="" cols="30" rows="10" required></textarea>
+                        <textarea placeholder="'.$text_area_placeholder.'" name="reply_message" id="" cols="30" rows="10" required></textarea>
                     </div>
                     <div class="reply_radio_btn">
                         <input type="radio" name="req_status" id="req_accept" value="Accepted">

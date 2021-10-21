@@ -24,6 +24,9 @@
 .req_container .req_sort_status {
   color: white;
 }
+.req_container .req_sort_holder {
+  width: 80%;
+}
 
 .req_header {
   /* background-color: #6e6160; */
@@ -169,6 +172,26 @@
   font-family: "Open Sans", sans-serif;
   font-size: 14px;
 }
+.req_reply .reply_text_display{
+  padding: 30px;
+  min-height: 200px;
+  width: 90%;
+}
+
+.req_reply .reply_text_display p{
+  border: 1px solid white;
+  margin-bottom: 30px;
+  margin-top: 10px;
+  padding: 20px;
+  text-align: left;
+}
+.req_reply .reply_text_display h4{
+  /* border: 1px solid white; */
+  /* margin: 30px 0; */
+  /* padding: 30px; */
+  text-align: left;
+  
+}
 
 .req_reply .reply_radio_btn {
   width: 60%;
@@ -194,12 +217,28 @@
   font-family: "Open Sans", sans-serif;
   cursor: pointer;
 }
+.add_new_req_btn{
+  background-color: rgb(5, 100, 138);
+  color: white;
+  border: 1px solid white;
+  padding: 10px 10px;
+  text-transform: uppercase;
+  font-weight: 400;
+  border-radius: 25px;
+  margin-top: 10px;
+  float: right;
+}
 
 @media screen and (max-width: 720px) {
   .req_header {
     width: 95%;
     height: auto;
   }
+
+  .req_container .req_sort_holder {
+    width: 95%;
+  }
+
   .req_reply {
     width: 95%;
   }

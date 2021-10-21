@@ -115,10 +115,10 @@
     <div class="image-div-container image-2">
         <div class="image-div-holder flex-left">
             <div class="image-div-txt-holder">
-            <h4>SEND YOUR <span class="blue-colored-text">REQUESTS</span></h4>
+            <h4>MANAGE YOUR <span class="blue-colored-text">REQUESTS</span></h4>
                 <p>Put away money for your big dreams and keep those funds growing with certificates of deposit (CDs).
                     Lock in a competitive rate for a term that fits your timeframe.</p>
-                <button onclick = "window.open('customer_requests.php','_self')">Request Now</button>
+                <button onclick = "window.open('customer_view_requests.php','_self')">Visit Now</button>
             </div>
         </div>
     </div>
