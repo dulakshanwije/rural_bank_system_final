@@ -107,7 +107,7 @@ if (!isset($_SESSION["crnt_b_id"])){
             <div class="bank-image-txt-holder">
                 <h4>MANAGE YOUR <span class="blue-colored-text">BANK</span></h4>
                 <p>Update your given bank details if you have done a specific change in regard of the bank.</p>
-                <button >Request an Update</button>
+                <button onclick="window.open('bank_requests.php','_self');">Request an Update</button>
             </div>
         </div>
 
