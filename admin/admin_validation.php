@@ -23,7 +23,6 @@ if (isset($_POST['admin_email']) && isset($_POST['admin_password'])) {
     }
     else {
         $sql = "SELECT * FROM admin_table WHERE admin_email ='$admin_email' AND admin_password = '$admin_pass'";
-
         $result=mysqli_query($conn, $sql);
 
         $res = mysqli_fetch_assoc($result);
@@ -33,7 +32,7 @@ if (isset($_POST['admin_email']) && isset($_POST['admin_password'])) {
                     header("Location: admin_home.php");
         }
         else {
-            header("Location: customer_login.php?error=Incorrect Username or Password!");
+            header("Location: index.php?error=Incorrect Username or Password!");
             exit();
         }
     }
