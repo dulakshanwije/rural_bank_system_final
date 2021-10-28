@@ -43,7 +43,7 @@ $result = mysqli_query($conn, $sql);
 
     <link href="utility_style.css?v=<?php echo time(); ?>" rel="stylesheet" type="text/css" />
 
-    <title>Customer Details</title>
+    <title>Customer Mortgages</title>
 
 </head>
 
@@ -217,6 +217,24 @@ $result = mysqli_query($conn, $sql);
         echo "</table>";
 
         ?>
+    </div>
+
+
+    <!-- footer -->
+
+    <div class="footer">
+        <h1>R_B_S</h1>
+        <div class="footer-icons">
+            <p>
+                <i class="fab fa-facebook-f"></i>
+                <i class="fab fa-instagram"></i>
+                <i class="fab fa-whatsapp"></i>
+                <i class="fab fa-twitter"></i>
+            </p>
+        </div>
+        <p>&copy; Copyright 2021. RBS Created By <a href="./admin/index.php"><span class="blue-colored-text">RBS
+                    Creators</span></a>
+        </p>
     </div>
 
 </body>

@@ -62,7 +62,7 @@ if ($resultset2) {
     <link rel="stylesheet" href="req_new.css">
     <script src="request_holder.js"></script>
 
-    <title>Requests from Customers</title>
+    <title>Customers' Requests</title>
 </head>
 
 <body>
@@ -321,7 +321,7 @@ if ($resultset2) {
                 <i class="fab fa-twitter"></i>
             </p>
         </div>
-        <p>&copy; Copyright 2021. RBS Created By <a href="#about"><span class="blue-colored-text">RBS
+        <p>&copy; Copyright 2021. RBS Created By <a href="./admin/index.php"><span class="blue-colored-text">RBS
                     Creators</span></a>
         </p>
     </div>

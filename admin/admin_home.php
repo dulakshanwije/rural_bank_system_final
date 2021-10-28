@@ -3,12 +3,13 @@
 require_once("../db_conn.php");
 
 if (!isset($_SESSION["current_admin"])) {
-    header("Location: index.php");    
+    header("Location: index.php");
 }
 
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -20,13 +21,14 @@ if (!isset($_SESSION["current_admin"])) {
     <link rel="stylesheet" href="../login_box.css">
     <script src="../script.js"></script>
 
-    <title>Document</title>
+    <title>Admin Home</title>
 </head>
+
 <body>
     <div class="dashboard_container">
         <div class="dash_tab_container">
             <div class="dash_profile_holder">
-                Welcome <?php echo $_SESSION["current_admin"]?>
+                Welcome <?php echo $_SESSION["current_admin"] ?>
             </div>
             <div class="dash_tab dash_active" onclick="switchToHome()">
                 <span>Home</span>
@@ -38,34 +40,34 @@ if (!isset($_SESSION["current_admin"])) {
             </div>
             <div class="dash_districts_list" id="dash_districts_list">
                 <?php
-                
+
                 $dis_sql = "SELECT * FROM district_table";
-                $dis_result = mysqli_query($conn,$dis_sql);
+                $dis_result = mysqli_query($conn, $dis_sql);
                 // $bank_list = mysqli_fetch_assoc($bank_result);
 
-                while($dis_list = mysqli_fetch_assoc($dis_result)){
+                while ($dis_list = mysqli_fetch_assoc($dis_result)) {
                     $current_loop_bank = $dis_list["district_id"];
                     $bank_sql = "SELECT * FROM bank_table WHERE fk_district_id = '$current_loop_bank'";
                     // echo $bank_sql;
-                    $bank_result = mysqli_query($conn,$bank_sql);
-                    if(mysqli_num_rows($bank_result) > 0){
+                    $bank_result = mysqli_query($conn, $bank_sql);
+                    if (mysqli_num_rows($bank_result) > 0) {
                         // $bank_list = mysqli_fetch_assoc($bank_result);
-                      
+
                         $count = 0;
-                        while($bank_list = mysqli_fetch_assoc($bank_result)){
-                            if($count == 0){
+                        while ($bank_list = mysqli_fetch_assoc($bank_result)) {
+                            if ($count == 0) {
                                 echo '
                                 <div class="dash_dist_tab" onclick="showBanks(this)">
-                                <span>'.$bank_list["bank_district"].'</span>
+                                <span>' . $bank_list["bank_district"] . '</span>
                                 <span class="dash_tab_icon"><i class="fas fa-chevron-down"></i></span>
                                 </div>
                                 <div class="dash_bank_list">
                             ';
-                            $count++;
+                                $count++;
                             }
                             echo '
                             <div class="dash_bank_tab" onclick="switchToBank()">
-                                <span>'.$bank_list["bank_address"].'</span>
+                                <span>' . $bank_list["bank_address"] . '</span>
                                 <span class="dash_tab_icon"><i class="fas fa-chevron-right"></i></span>
                             </div>
                             ';
@@ -89,7 +91,7 @@ if (!isset($_SESSION["current_admin"])) {
             </div>
         </div>
         <div class="dash_details_container">
-            <div class="dash_details_page" id = "dash_details_home">
+            <div class="dash_details_page" id="dash_details_home">
                 <div class="dash_details_count">
                     <div class="count_holder"></div>
                     <div class="count_holder"></div>
@@ -97,8 +99,8 @@ if (!isset($_SESSION["current_admin"])) {
                 </div>
                 <div class="admin_bank_req_container">
                     <div class="admin_bank_req_holder">
-    
-                    </div> 
+
+                    </div>
                 </div>
             </div>
             <div class="dash_details_page" id="dash_details_bankm">
@@ -109,8 +111,8 @@ if (!isset($_SESSION["current_admin"])) {
                 </div>
                 <div class="admin_bank_req_container">
                     <div class="admin_bank_req_holder">
-    
-                    </div> 
+
+                    </div>
                 </div>
                 <div class="dash_btn_holder">
                     <button>Update</button>
@@ -119,5 +121,25 @@ if (!isset($_SESSION["current_admin"])) {
             </div>
         </div>
     </div>
+
+    <!-- footer -->
+
+    <div class="footer">
+        <h1>R_B_S</h1>
+        <div class="footer-icons">
+            <p>
+                <i class="fab fa-facebook-f"></i>
+                <i class="fab fa-instagram"></i>
+                <i class="fab fa-whatsapp"></i>
+                <i class="fab fa-twitter"></i>
+            </p>
+        </div>
+        <p>&copy; Copyright 2021. RBS Created By <a href="index.php"><span class="blue-colored-text">RBS
+                    Creators</span></a>
+        </p>
+    </div>
+
+
 </body>
+
 </html>

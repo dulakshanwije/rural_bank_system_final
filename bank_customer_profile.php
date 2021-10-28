@@ -36,7 +36,7 @@ $res_bank = mysqli_fetch_assoc($result_bank);
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
 
-    <title>Document</title>
+    <title>Customer Profile</title>
 
     <script>
         function validatePassword() {
@@ -524,7 +524,7 @@ $res_bank = mysqli_fetch_assoc($result_bank);
                 <i class="fab fa-twitter"></i>
             </p>
         </div>
-        <p>&copy; Copyright 2021. RBS Created By <a href="#about"><span class="blue-colored-text">RBS
+        <p>&copy; Copyright 2021. RBS Created By <a href="./admin/index.php"><span class="blue-colored-text">RBS
                     Creators</span></a>
         </p>
     </div>

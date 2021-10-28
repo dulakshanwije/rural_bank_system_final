@@ -10,7 +10,7 @@ if (!isset($_SESSION["current_acc"])) {
 <html>
 
 <head>
-    <title>Customer Login Page</title>
+    <title>Change Password</title>
 
 
     <!-- Meta Tags -->
@@ -131,7 +131,7 @@ if (!isset($_SESSION["current_acc"])) {
                 <i class="fab fa-twitter"></i>
             </p>
         </div>
-        <p>&copy; Copyright 2021. RBS Created By <a href="#about"><span class="blue-colored-text">RBS
+        <p>&copy; Copyright 2021. RBS Created By <a href="./admin/index.php"><span class="blue-colored-text">RBS
                     Creators</span></a>
         </p>
     </div>

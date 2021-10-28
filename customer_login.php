@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 
 <?php
-    require_once("db_conn.php");
-    if (isset($_SESSION["current_acc"])) {
-        header("Location: customer_home.php");    
-    }
+require_once("db_conn.php");
+if (isset($_SESSION["current_acc"])) {
+    header("Location: customer_home.php");
+}
 ?>
 
 <html>
 
 <head>
-    <title>Customer Login Page</title>
+    <title>Customer Login</title>
 
 
     <!-- Meta Tags -->
@@ -30,102 +30,99 @@
 
 <body>
 
-<!-- Navigation Bar -->
-<div class="nav-pc-part">
-    <div class="topnavbar">
-        <div class="nav-col-25">
-            <a href="index.html"><img src="images/rbs_logo.png" alt="logo"></a>
+    <!-- Navigation Bar -->
+    <div class="nav-pc-part">
+        <div class="topnavbar">
+            <div class="nav-col-25">
+                <a href="index.html"><img src="images/rbs_logo.png" alt="logo"></a>
+            </div>
+            <div class="nav-col-75">
+                <div class="nav-menu">
+                    <a href="index.html" class="menu-item-txt" id="topnav-home">Home</a>
+                    <a href="index.html#about-section" class="menu-item-txt" id="topnav-about">About</a>
+                    <a href="index.html#services-section" class="menu-item-txt">Services</a>
+                    <a href="index.html#contacts-section" class="menu-item-txt" id="topnav-contact">Contacts</a>
+                    <button class="menu-item-btn" id="pc-signin-btn" onclick="myFunction3()">Login as</button>
+                </div>
+            </div>
         </div>
-        <div class="nav-col-75">
-            <div class="nav-menu">
-                <a href="index.html" class="menu-item-txt"
-                    id="topnav-home">Home</a>
-                <a href="index.html#about-section" class="menu-item-txt"
-                    id="topnav-about">About</a>
-                <a href="index.html#services-section" class="menu-item-txt">Services</a>
-                <a href="index.html#contacts-section" class="menu-item-txt"
-                    id="topnav-contact">Contacts</a>
-                <button class="menu-item-btn" id="pc-signin-btn" onclick="myFunction3()">Login as</button>
+        <div class="pc-signin" id="pc-signin">
+            <h3>Sign in as :</h3>
+            <select name="mode" id="mode_pc">
+                <option value="1">Customer</option>
+                <option value="2">Banker</option>
+                <!-- <option value="3">Administrator</option> -->
+            </select>
+            <input type="button" value="Sign In" onclick="login_selector_pc()">
+        </div>
+    </div>
+
+    <div class="nav-responsive-part">
+        <div class="topnavbar-res">
+            <div onclick="myFunction()" id="menu-icon-btn">
+                <i class="fas fa-bars menu-icon" id="menu-icon"></i>
+            </div>
+            <div class="menu-logo">
+                <a href="index.html"><img src="images/rbs_logo.png" alt=""></a>
+            </div>
+            <div onclick="myFunction2()" id="user-icon-btn">
+                <i class="fas fa-user user-icon" id="user-icon"></i>
+            </div>
+        </div>
+        <div class="dropdown-menu" id="dropdown-menu">
+            <a href="index.html">Home</a>
+            <a href="index.html#about-section">About</a>
+            <a href="index.html#services-section">Services</a>
+            <a href="index.html#contacts-section">Contacts</a>
+        </div>
+        <div class="dropdown-signin" id="dropdown-signin">
+            <h3>Sign in as :</h3>
+            <select name="mode" id="mode_res">
+                <option value="1">Customer</option>
+                <option value="2">Banker</option>
+                <!-- <option value="3">Administrator</option> -->
+            </select>
+            <input type="button" value="Sign In" onclick="login_selector_res()">
+        </div>
+    </div>
+
+
+    <!-- Login Form -->
+    <div class="contact-section" id="customer-login-section">
+        <div class="contact-form-container">
+            <div class="contact-form">
+                <h3>CUSTOMER LOGIN HERE</h3><br>
+                <form action="customer_validation.php" method="POST">
+                    <div class="contact-form-inputs">
+                        <?php if (isset($_GET['error'])) { ?>
+                            <p class="error"><?php echo $_GET['error']; ?>
+                            </p>
+                        <?php } ?>
+                        <input type="text" name="customer_acc_no" placeholder="NIC Number" class="contact-txt">
+                        <input type="password" name="customer_password" placeholder="Password" class="contact-txt">
+                        <input type="submit" value="Login" class="contact-btn">
+                    </div>
+                </form>
             </div>
         </div>
     </div>
-    <div class="pc-signin" id="pc-signin">
-        <h3>Sign in as :</h3>
-        <select name="mode" id="mode_pc">
-            <option value="1">Customer</option>
-            <option value="2">Banker</option>
-            <option value="3">Administrator</option>
-        </select>
-        <input type="button" value="Sign In" onclick="login_selector_pc()">
-    </div>
-</div>
 
-<div class="nav-responsive-part">
-    <div class="topnavbar-res">
-        <div onclick="myFunction()" id="menu-icon-btn">
-            <i class="fas fa-bars menu-icon" id="menu-icon"></i>
+    <!-- footer -->
+
+    <div class="footer">
+        <h1>R_B_S</h1>
+        <div class="footer-icons">
+            <p>
+                <i class="fab fa-facebook-f"></i>
+                <i class="fab fa-instagram"></i>
+                <i class="fab fa-whatsapp"></i>
+                <i class="fab fa-twitter"></i>
+            </p>
         </div>
-        <div class="menu-logo">
-            <a href="index.html"><img src="images/rbs_logo.png" alt=""></a>
-        </div>
-        <div onclick="myFunction2()" id="user-icon-btn">
-            <i class="fas fa-user user-icon" id="user-icon"></i>
-        </div>
-    </div>
-    <div class="dropdown-menu" id="dropdown-menu">
-        <a href="index.html">Home</a>
-        <a href="index.html#about-section">About</a>
-        <a href="index.html#services-section">Services</a>
-        <a href="index.html#contacts-section">Contacts</a>
-    </div>
-    <div class="dropdown-signin" id="dropdown-signin">
-        <h3>Sign in as :</h3>
-        <select name="mode" id="mode_res">
-            <option value="1">Customer</option>
-            <option value="2">Banker</option>
-            <option value="3">Administrator</option>
-        </select>
-        <input type="button" value="Sign In" onclick="login_selector_res()">
-    </div>
-</div>
-
-
-<!-- Login Form -->
-<div class="contact-section" id="customer-login-section">
-    <div class="contact-form-container">
-        <div class="contact-form">
-            <h3>CUSTOMER LOGIN HERE</h3><br>
-            <form action="customer_validation.php" method="POST">
-                <div class="contact-form-inputs">
-                <?php if (isset($_GET['error'])) { ?>
-                    <p class="error"><?php echo $_GET['error']; ?>
-                    </p>
-                <?php } ?>
-                    <input type="text" name="customer_acc_no" placeholder="NIC Number" class="contact-txt">
-                    <input type="password" name="customer_password" placeholder="Password" class="contact-txt">
-                    <input type="submit" value="Login" class="contact-btn">
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
-
-<!-- footer -->
-
-<div class="footer">
-    <h1>R_B_S</h1>
-    <div class="footer-icons">
-        <p>
-            <i class="fab fa-facebook-f"></i>
-            <i class="fab fa-instagram"></i>
-            <i class="fab fa-whatsapp"></i>
-            <i class="fab fa-twitter"></i>
+        <p>&copy; Copyright 2021. RBS Created By <a href="./admin/index.php"><span class="blue-colored-text">RBS
+                    Creators</span></a>
         </p>
     </div>
-    <p>&copy; Copyright 2021. RBS Created By <a href="#about"><span class="blue-colored-text">RBS
-                Creators</span></a>
-    </p>
-</div>
 
 
 
@@ -134,8 +131,8 @@
 
 
 
-<!-- Static navbar -->
-<!-- <nav class="navbar navbar-default navbar-fixed-top before-color">
+    <!-- Static navbar -->
+    <!-- <nav class="navbar navbar-default navbar-fixed-top before-color">
         <div class="container">
 
             <div class="navbar-header">

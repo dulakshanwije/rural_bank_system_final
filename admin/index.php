@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 
 <?php
-    require_once("../db_conn.php");
-    if (isset($_SESSION["current_admin"])) {
-        header("Location: admin_home.php");    
-    }
+require_once("../db_conn.php");
+if (isset($_SESSION["current_admin"])) {
+    header("Location: admin_home.php");
+}
 ?>
 
 <html>
@@ -22,18 +22,21 @@
     <link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">
     <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
 
+    <link rel="stylesheet" href="dashboard.css">
+    <script src="dashboard.js"></script>
+
 </head>
 
 <body>
 
-<!-- Navigation Bar -->
-<div class="nav-pc-part">
-    <div class="topnavbar">
-        <div class="nav-col-25">
-            <a href="index.html"><img src="../images/rbs_logo.png" alt="logo"></a>
-        </div>
-        <div class="nav-col-75">
-            <!-- <div class="nav-menu">
+    <!-- Navigation Bar -->
+    <div class="nav-pc-part">
+        <div class="topnavbar">
+            <div class="nav-col-25">
+                <a href="../index.html"><img src="../images/rbs_logo.png" alt="logo"></a>
+            </div>
+            <div class="nav-col-75">
+                <!-- <div class="nav-menu">
                 <a href="index.html" class="menu-item-txt"
                     id="topnav-home">Home</a>
                 <a href = "index.html#about-section" class="menu-item-txt"
@@ -43,9 +46,9 @@
                     id="topnav-contact">Contacts</a>
                 <button class="menu-item-btn" id="pc-signin-btn" onclick="myFunction3()">Login as</button>
             </div> -->
+            </div>
         </div>
-    </div>
-    <!-- <div class="pc-signin" id="pc-signin">
+        <!-- <div class="pc-signin" id="pc-signin">
         <h3>Sign in as :</h3>
         <select name="mode" id="mode_pc">
             <option value="1">Customer</option>
@@ -54,21 +57,21 @@
         </select>
         <input type="button" value="Sign In" onclick="login_selector_pc()">
     </div> -->
-</div>
-
-<div class="nav-responsive-part">
-    <div class="topnavbar-res">
-        <div onclick="myFunction()" id="menu-icon-btn">
-            <!-- <i class="fas fa-bars menu-icon" id="menu-icon"></i> -->
-        </div>
-        <div class="menu-logo">
-            <a href="index.html"><img src="../images/rbs_logo.png" alt=""></a>
-        </div>
-        <div onclick="myFunction2()" id="user-icon-btn">
-            <!-- <i class="fas fa-user user-icon" id="user-icon"></i> -->
-        </div>
     </div>
-    <!-- <div class="dropdown-menu" id="dropdown-menu">
+
+    <div class="nav-responsive-part">
+        <div class="topnavbar-res">
+            <div onclick="myFunction()" id="menu-icon-btn">
+                <!-- <i class="fas fa-bars menu-icon" id="menu-icon"></i> -->
+            </div>
+            <div class="menu-logo">
+                <a href="../index.html"><img src="../images/rbs_logo.png" alt=""></a>
+            </div>
+            <div onclick="myFunction2()" id="user-icon-btn">
+                <!-- <i class="fas fa-user user-icon" id="user-icon"></i> -->
+            </div>
+        </div>
+        <!-- <div class="dropdown-menu" id="dropdown-menu">
         <a href="index.html">Home</a>
         <a href="index.html#about-section">About</a>
         <a href="">Services</a>
@@ -83,47 +86,47 @@
         </select>
         <input type="button" value="Sign In" onclick="login_selector_res()">
     </div> -->
-</div>
+    </div>
 
-<!-- Bank Login  -->
+    <!-- Bank Login  -->
 
-<div class="contact-section" id="bank-login-section">
-    <div class="contact-form-container">
-        <div class="contact-form">
-            <h3>ADMIN LOGIN</h3><br>
-            <form action="admin_validation.php" method="POST">
-                <div class="contact-form-inputs">
-                <?php if (isset($_GET['error'])) { ?>
-                    <p class="error"><?php echo $_GET['error']; ?>
-                    </p>
-                <?php } ?>
-                    <input type="text" name="admin_email" placeholder="Email" class="contact-txt">
-                    <input type="password" name="admin_password" placeholder="Password" class="contact-txt">
-                    <input type="submit" value="Login" class="contact-btn">
-                </div>
-            </form>
+    <div class="contact-section" id="bank-login-section">
+        <div class="contact-form-container">
+            <div class="contact-form">
+                <h3>ADMIN LOGIN</h3><br>
+                <form action="admin_validation.php" method="POST">
+                    <div class="contact-form-inputs">
+                        <?php if (isset($_GET['error'])) { ?>
+                            <p class="error"><?php echo $_GET['error']; ?>
+                            </p>
+                        <?php } ?>
+                        <input type="text" name="admin_email" placeholder="Email" class="contact-txt">
+                        <input type="password" name="admin_password" placeholder="Password" class="contact-txt">
+                        <input type="submit" value="Login" class="contact-btn">
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
-</div>
 
-<!-- footer -->
+    <!-- footer -->
 
-<div class="footer">
-    <h1>R_B_S</h1>
-    <div class="footer-icons">
-        <p>
-            <i class="fab fa-facebook-f"></i>
-            <i class="fab fa-instagram"></i>
-            <i class="fab fa-whatsapp"></i>
-            <i class="fab fa-twitter"></i>
+    <div class="footer">
+        <h1>R_B_S</h1>
+        <div class="footer-icons">
+            <p>
+                <i class="fab fa-facebook-f"></i>
+                <i class="fab fa-instagram"></i>
+                <i class="fab fa-whatsapp"></i>
+                <i class="fab fa-twitter"></i>
+            </p>
+        </div>
+        <p>&copy; Copyright 2021. RBS Created By <a href="index.php"><span class="blue-colored-text">RBS
+                    Creators</span></a>
         </p>
     </div>
-    <p>&copy; Copyright 2021. RBS Created By <a href="#about"><span class="blue-colored-text">RBS
-                Creators</span></a>
-    </p>
-</div>
 
-        <!-- <div class="login-box">
+    <!-- <div class="login-box">
 
             <div class="row">
 
@@ -143,7 +146,7 @@
                             <label>Password</label>
                             <input type="password" name="bank_password" placeholder="Password" class="form-control">
                             required -->
-                        <!-- </div>
+    <!-- </div>
                         <div class="btn-center">
                             <button type="submit" class="btn btn-primary"> Login </button>
                         </div>

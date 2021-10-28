@@ -40,7 +40,7 @@ function login_selector_pc() {
     switch (val) {
         case '1': window.open("customer_login.php", "_self"); break;
         case '2': window.open("bank_login.php", "_self"); break;
-        case '3': window.open("admin_login.php", "_self"); break;
+        // case '3': window.open("admin_login.php", "_self"); break;
     }
 }
 
@@ -50,7 +50,7 @@ function login_selector_res() {
     switch (val) {
         case '1': window.open("customer_login.php", "_self"); break;
         case '2': window.open("bank_login.php", "_self"); break;
-        case '3': window.open("admin_login.php", "_self"); break;
+        // case '3': window.open("admin_login.php", "_self"); break;
     }
 }
 

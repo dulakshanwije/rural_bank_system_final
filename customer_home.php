@@ -28,7 +28,7 @@ if (!isset($_SESSION["current_acc"])) {
 
     <link rel="stylesheet" href="img-divs.css">
 
-    <title>Customer Home Page</title>
+    <title>Customer Home</title>
 
 </head>
 
@@ -44,7 +44,7 @@ if (!isset($_SESSION["current_acc"])) {
             </div>
             <div class="nav-col-75">
                 <div class="nav-menu">
-                    <a href="customer_home.php" class="menu-item-txt" id="topnav-home">CUSTOMER HOME</a>
+                    <a href="customer_home.php" class="menu-item-txt" id="topnav-home"><i class="fas fa-home"></i></a>
 
                     <!-- <a href="javascript:void(0);" onclick="scrolltoAbout()" class="menu-item-txt" id="topnav-about">About</a>
                     <a href="javascript:void(0);" onclick="scrolltoServices()" class="menu-item-txt">Services</a>
@@ -146,7 +146,7 @@ if (!isset($_SESSION["current_acc"])) {
                 <i class="fab fa-twitter"></i>
             </p>
         </div>
-        <p>&copy; Copyright 2021. RBS Created By <a href="#about"><span class="blue-colored-text">RBS
+        <p>&copy; Copyright 2021. RBS Created By <a href="./admin/index.php"><span class="blue-colored-text">RBS
                     Creators</span></a>
         </p>
     </div>

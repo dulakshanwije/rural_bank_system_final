@@ -6,7 +6,7 @@
 
 require_once("db_conn.php");
 
-if (!isset($_SESSION["crnt_b_id"])){
+if (!isset($_SESSION["crnt_b_id"])) {
     header("Location: bank_login.php?error=Please Login First!");
 }
 
@@ -14,91 +14,92 @@ if (!isset($_SESSION["crnt_b_id"])){
 
 
 <html>
-    <head>
-        <title>Bank Home Page</title>
 
-        <!-- <link href="utility_style.css?v=<?php echo time(); ?>" rel="stylesheet" type="text/css" /> -->
+<head>
+    <title>Bank Home</title>
 
-        <!-- Meta Tags -->
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link href="utility_style.css?v=<?php echo time(); ?>" rel="stylesheet" type="text/css" /> -->
 
-        <!-- font awsome library -->
-        <script src="https://kit.fontawesome.com/d50e96d6ab.js" crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="stylesheet.css">
-        <script src="script.js"></script>
-        <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
-        <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <!-- Meta Tags -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        
-    </head>
+    <!-- font awsome library -->
+    <script src="https://kit.fontawesome.com/d50e96d6ab.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="stylesheet.css">
+    <script src="script.js"></script>
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
 
 
-    <body>
+</head>
 
 
-<!-- Navigation Bar -->
-<div class="nav-pc-part">
-    <div class="topnavbar">
-        <div class="nav-col-25">
-            <a href="index.html"><img src="images/rbs_logo.png" alt="logo"></a>
-        </div>
-        <div class="nav-col-75">
-            <div class="nav-menu">
-                <!-- <a href="bank_customer_registration.php" class="menu-item-txt"
+<body>
+
+
+    <!-- Navigation Bar -->
+    <div class="nav-pc-part">
+        <div class="topnavbar">
+            <div class="nav-col-25">
+                <a href="index.html"><img src="images/rbs_logo.png" alt="logo"></a>
+            </div>
+            <div class="nav-col-75">
+                <div class="nav-menu">
+                    <!-- <a href="bank_customer_registration.php" class="menu-item-txt"
                     id="topnav-home">REGISTER CUSTOMERS</a>
                 <a href="bank_view_customer_details.php" class="menu-item-txt"
                     id="topnav-about">VIEW CUSTOMERS</a> -->
-                <a href="bank_manage_customers.php" class="menu-item-txt">MANAGE CUSTOMERS</a>
-                <a href="" class="menu-item-txt">BANKS AVAILABLE</a>
-                <button class="menu-item-btn" onclick="myFunction3()" id="pc-signin-btn">Profile</button>
+                    <a href="bank_manage_customers.php" class="menu-item-txt">MANAGE CUSTOMERS</a>
+                    <a href="" class="menu-item-txt">BANKS AVAILABLE</a>
+                    <button class="menu-item-btn" onclick="myFunction3()" id="pc-signin-btn">Profile</button>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="pc-signin" id="pc-signin">
-        <h3>Logged in as : </h3>
-        <?php
-        
-        echo("<p>Bank : ".$_SESSION["crnt_b_address"]."</p>");
-        echo("<p>District : ".$_SESSION["crnt_b_district"]."</p>");
-        echo("<p>ID : ".$_SESSION["crnt_b_id"]."</p>");
-        
-        ?>
-        <input type="button" value="Sign Out" onclick="window.open('bank_logout.php', '_self');">
-    </div>
-</div>
+        <div class="pc-signin" id="pc-signin">
+            <h3>Logged in as : </h3>
+            <?php
 
-<div class="nav-responsive-part">
-    <div class="topnavbar-res">
-        <div onclick="myFunction()">
-            <i class="fas fa-bars menu-icon" id="menu-icon"></i>
-        </div>
-        <div class="menu-logo">
-            <a href="index.html"><img src="images/rbs_logo.png" alt=""></a>
-        </div>
-        <div onclick="myFunction2()">
-            <i class="fas fa-user user-icon" id="user-icon"></i>
+            echo ("<p>Bank : " . $_SESSION["crnt_b_address"] . "</p>");
+            echo ("<p>District : " . $_SESSION["crnt_b_district"] . "</p>");
+            echo ("<p>ID : " . $_SESSION["crnt_b_id"] . "</p>");
+
+            ?>
+            <input type="button" value="Sign Out" onclick="window.open('bank_logout.php', '_self');">
         </div>
     </div>
-    <div class="dropdown-menu" id="dropdown-menu">
-        <!-- <a href="bank_customer_registration.php">REGISTER CUSTOMERS</a>
+
+    <div class="nav-responsive-part">
+        <div class="topnavbar-res">
+            <div onclick="myFunction()">
+                <i class="fas fa-bars menu-icon" id="menu-icon"></i>
+            </div>
+            <div class="menu-logo">
+                <a href="index.html"><img src="images/rbs_logo.png" alt=""></a>
+            </div>
+            <div onclick="myFunction2()">
+                <i class="fas fa-user user-icon" id="user-icon"></i>
+            </div>
+        </div>
+        <div class="dropdown-menu" id="dropdown-menu">
+            <!-- <a href="bank_customer_registration.php">REGISTER CUSTOMERS</a>
         <a href="bank_view_customer_details.php">VIEW CUSTOMERS</a> -->
-        <a href="bank_manage_customers.php">MANAGE CUSTOMERS</a>
-        <a href="">BANKS AVAILABLE</a>
+            <a href="bank_manage_customers.php">MANAGE CUSTOMERS</a>
+            <a href="">BANKS AVAILABLE</a>
+        </div>
+        <div class="dropdown-signin" id="dropdown-signin">
+            <h3>Logged in as : </h3>
+            <?php
+
+            echo ("<p>Bank : " . $_SESSION["crnt_b_address"] . "</p>");
+            echo ("<p>District : " . $_SESSION["crnt_b_district"] . "</p>");
+            echo ("<p>ID : " . $_SESSION["crnt_b_id"] . "</p>");
+
+            ?>
+            <input type="button" value="Sign Out" onclick="window.open('bank_logout.php', '_self');">
+        </div>
     </div>
-    <div class="dropdown-signin" id="dropdown-signin">
-        <h3>Logged in as : </h3>
-        <?php
-        
-        echo("<p>Bank : ".$_SESSION["crnt_b_address"]."</p>");
-        echo("<p>District : ".$_SESSION["crnt_b_district"]."</p>");
-        echo("<p>ID : ".$_SESSION["crnt_b_id"]."</p>");
-        
-        ?>
-        <input type="button" value="Sign Out" onclick="window.open('bank_logout.php', '_self');">
-    </div>
-</div>
 
     <!-- Bank Home Body  -->
 
@@ -148,9 +149,9 @@ if (!isset($_SESSION["crnt_b_id"])){
                 <i class="fab fa-twitter"></i>
             </p>
         </div>
-            <p>&copy; Copyright 2021. RBS Created By <a href="#about"><span class="blue-colored-text">RBS
-                Creators</span></a>
-            </p>
+        <p>&copy; Copyright 2021. RBS Created By <a href="./admin/index.php"><span class="blue-colored-text">RBS
+                    Creators</span></a>
+        </p>
     </div>
 
     <!-- Common header starts here -->
@@ -168,14 +169,14 @@ if (!isset($_SESSION["crnt_b_id"])){
     </header> -->
 
     <!-- Common header ends here -->
-        
-        <!-- <div class="container" id="bank_header">
+
+    <!-- <div class="container" id="bank_header">
             <h1>BANK HOME PAGE</h1>
 
             </br><h2>WELCOME <?php echo $_SESSION['current_b_id']; ?> </h2>
 
         </div> -->
-    </body>
+</body>
 
 
 

@@ -196,6 +196,24 @@ $result = mysqli_query($conn, $sql);
 
     </div>
 
+
+    <!-- footer -->
+
+    <div class="footer">
+        <h1>R_B_S</h1>
+        <div class="footer-icons">
+            <p>
+                <i class="fab fa-facebook-f"></i>
+                <i class="fab fa-instagram"></i>
+                <i class="fab fa-whatsapp"></i>
+                <i class="fab fa-twitter"></i>
+            </p>
+        </div>
+        <p>&copy; Copyright 2021. RBS Created By <a href="./admin/index.php"><span class="blue-colored-text">RBS
+                    Creators</span></a>
+        </p>
+    </div>
+
 </body>
 
 </html>
