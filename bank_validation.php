@@ -46,6 +46,7 @@ if (isset($_POST['bank_id']) && isset($_POST['bank_password'])) {
             $_SESSION["crnt_b_id"] = $res["bank_id"];
             $_SESSION["crnt_b_district"] = $res["bank_district"];
             $_SESSION["crnt_b_address"] = $res["bank_address"];
+            $_SESSION["crnt_b_telephone"] = $res["bank_phone_number"];
             header("Location: bank_home.php");
         }
 

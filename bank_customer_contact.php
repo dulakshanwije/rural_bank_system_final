@@ -1,17 +1,21 @@
+<!DOCTYPE html>
 <?php
+
 require_once("db_conn.php");
 
 if (!isset($_SESSION["crnt_b_id"])) {
     header("Location: bank_login.php?error=Please Login First!");
 }
 
-$customer_id = $_GET["customer_nic"];
+$current_id = $_GET["customer_nic"];
+
+
 ?>
-<!DOCTYPE html>
+
 <html lang="en">
 
 <head>
-    <title>Customer Savings</title>
+    <title>Send Email to Customer</title>
 
     <!-- Meta Tags -->
     <meta charset="UTF-8">
@@ -25,22 +29,12 @@ $customer_id = $_GET["customer_nic"];
     <script src="script.js"></script>
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
-    <style>
-        /* Chrome, Safari, Edge, Opera */
-        input::-webkit-outer-spin-button,
-        input::-webkit-inner-spin-button {
-            -webkit-appearance: none;
-            margin: 0;
-        }
 
-        /* Firefox */
-        input[type=number] {
-            -moz-appearance: textfield;
-        }
-    </style>
+
 </head>
 
 <body>
+
     <!-- Navigation Bar -->
     <div class="nav-pc-part">
         <div class="topnavbar">
@@ -100,42 +94,35 @@ $customer_id = $_GET["customer_nic"];
         </div>
     </div>
 
-    <!-- Add Customer Loan Details -->
+    <!-- User Updating Form -->
 
-    <div id="bank-loan-form-section">
+    <div id="customer-update-section">
         <div class="contact-form-container">
             <div class="contact-form">
-                <h3>ADDING SAVINGS DETAILS OF <?php echo $customer_id; ?></h3>
-                <form action="bank_customer_savings_adder.php?customer_nic=<?php echo $customer_id; ?>" method="POST">
+                <h3>SEND AN EMAIL TO <?php echo $current_id; ?></h3><br>
+                <form action="bank_customer_contact_sender.php?customer_nic=<?php echo $current_id; ?>" method="POST">
                     <div class="contact-form-inputs">
-                        <div class="bank-form-head-txt">
-                            <input type="checkbox" id="auto_checker_mort" name="auto_checker_mort" value="auto_checked" checked>
-                            <label for="auto_checker_mort">Auto Calculate</label>
-                        </div>
+                        <?php if (isset($_GET['error'])) { ?>
+                            <p class="error"><?php echo $_GET['error']; ?>
+                            </p>
+                        <?php } ?>
+                        <input type="text" name="email_subject" id="email_subject" placeholder="Subject" class="contact-txt" value="" required>
 
-                        <label for="savings_amount" class="bank-form-lable-txt">Saving Amount :</label>
-                        <input id="savings_amount" name="savings_amount" type="number" step="0.01" class="contact-txt" required>
+                        <select name="email_type_selector" id="type_selector" onchange = "showOtherDropdown()" class="contact-txt">
+                            <option value="Savings">Savings</option>
+                            <option value="Loans">Loans</option>
+                            <option value="Mortgage">Mortgage</option>
+                            <option value="Other" id = "other_select" >Other</option>
+                        </select>
 
-                        <label for="savings_interest" class="bank-form-lable-txt">Saving Interest Rate (%) :</label>
-                        <input id="savings_interest" name="savings_interest" type="number" step="0.01" class="contact-txt" required>
-
-                        <label for="savings_interest_amount" class="bank-form-lable-txt">Saving Interest Amount :</label>
-                        <input id="savings_interest_amount" name="savings_interest_amount" type="number" step="0.01" class="contact-txt" required>
-
-                        <label for="savings_full_amount" class="bank-form-lable-txt">Saving Full Amount :</label>
-                        <input id="savings_full_amount" name="savings_full_amount" type="number" step="0.01" class="contact-txt" required>
+                        <input type="text" name="email_type" id="email_type" placeholder="Category" class="contact-txt" value="" style = "display:none;">
 
 
-                        <label for="savings_issued_date" class="bank-form-lable-txt">Saving Issued Date :</label>
-                        <input type="text" name="savings_issued_date" id="savings_issued_date" class="contact-txt" onfocus="(this.type = 'date')" required>
-
-
-                        <div class="bank-form-head-txt" style="text-align: justify;">
-                            <input type="checkbox" id="agreement_checker" name="agreement_checker" required>
-                            <label for="agreement_checker">I hereby agree to be aware that the relevant Financial Documentations and Transactions regarding the details related to this form is ALREADY DONE VIA THE BANK PHYSICALLY, and this is just a documentary process storing the data which will be helpful to our customers.
-                            </label>
-                        </div>
-                        <input type="submit" value="ADD DETAILS" class="contact-btn">
+                        <!-- <input type="text" name="ch_lname" id="c_lname" placeholder="Last Name" class="contact-txt" value="" required> -->
+                        
+                        <textarea name="email_message" id="" cols="30" rows="10" class="contact-txt" placeholder="Last Name"></textarea>
+                        
+                        <input type="submit" id="btn_submit" value="SEND" class="contact-btn">
                     </div>
                 </form>
             </div>
@@ -158,6 +145,25 @@ $customer_id = $_GET["customer_nic"];
                     Creators</span></a>
         </p>
     </div>
+
+    <script>
+        function showOtherDropdown() {
+            
+            // const other_type = document.getElementById("other_select");
+            const other_text = document.getElementById("email_type");
+
+            var sel = document.getElementById("type_selector");
+            var val = sel.options[sel.selectedIndex].value;
+            
+            if(val == 4){
+                other_text.style.display = "block";
+            }
+            else {
+                other_text.style.display = "none";
+            }
+        }
+    </script>
+
 </body>
 
 </html>

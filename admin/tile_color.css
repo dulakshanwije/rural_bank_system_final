@@ -1,0 +1,61 @@
+.bg_purple{
+    background-image: linear-gradient(to bottom right,#8632C2,#be8bf6);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    color: rgb(255, 255, 255);
+}
+.bg_orange{
+    background-image: linear-gradient(to bottom right,#F56C69,#EFAE97);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    color: rgb(255, 255, 255);
+}
+
+.bg_red {
+    background-image: linear-gradient(to bottom right,#AF092F,#EE375D);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    color: rgb(255, 255, 255);
+}
+
+.bg_blue {
+    background-image: linear-gradient(to bottom right,#2344E0,#3EA6E6);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    color: rgb(255, 255, 255);
+}
+
+.card_blue {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-top: 5px solid #2344E0;
+    color: black;
+}
+
+.card_purple {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-top: 5px solid #8632C2;
+    color: black;
+}
+
+.card_red {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-top: 5px solid #AF092F;
+    color: black;
+}
+
+.card_orange {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-top: 5px solid #EE375D;
+    color: black;
+}
+
+.tab_trans{
+    background-color: transparent;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-bottom: 5px solid #2344E0;
+}
+
+.gradient_red_25{
+    background-image: linear-gradient(to right,#AF092F 0%, #AF092F 15%,transparent 15%,transparent 100%);
+}
+
+.gradient_purple_25{
+    background-image: linear-gradient(to right, #8632C2 0%, #8632C2 15%,transparent 15%,transparent 100%);
+}
+

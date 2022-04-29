@@ -34,6 +34,9 @@ if (isset($_POST['customer_acc_no']) && isset($_POST['customer_password'])) {
             }
             else {
                 if($res["customer_account_status"] == 'Deactive'){
+                    $_SESSION["current_status"] = $res["customer_account_status"] ;
+                    $_SESSION["current_customer_email"] = $res["customer_email"];
+                    $_SESSION["temp_acc"] = $res["customer_nic"];
                     header("Location: customer_deactive_alert.html");
                 }
                 else{

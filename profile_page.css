@@ -25,7 +25,7 @@
 .profile_btn_container{
     width: 60%;
     display: inline-grid;
-    grid-template-columns: auto auto auto;
+    grid-template-columns: auto auto;
     grid-column-gap:50px ;
     /* display: flex;
     flex-direction: row;
@@ -44,6 +44,8 @@
     font-family: "Open Sans", sans-serif;
     margin: 20px 0;
     cursor: pointer;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    /* box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.2), 0 6px 20px 0 rgba(255, 255, 255, 0.19); */
 }
 
 .profile_btn_container .update_btn {
@@ -61,6 +63,10 @@
 .profile_btn_container .deactive_btn {
     background-color: #b34132;
     border: 1px solid #b34132;
+} 
+.profile_btn_container .contact_btn {
+    background-color: #2664c0;
+    border: 1px solid #09296d;
 } 
 
 .profile_btn_container .profile_btn_disable{
@@ -184,6 +190,36 @@
   .profile_active_confirm {
     background-color: #a18b57;
   }
+
+  .two_btn_holder {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    margin: 10px 0px;
+  }
+
+  .two_btn_holder input{
+    width: 20%;
+    padding: 10px 20px;
+    margin-left: 20px;
+    text-transform: uppercase;
+    border-radius: 20px;
+    border: none;
+  }
+
+  .two_btn_holder .update {
+    background-image: linear-gradient(to bottom right,#2344E0,#3EA6E6);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    color: rgb(255, 255, 255);
+  }
+  
+  .two_btn_holder .edit {
+    background-image: linear-gradient(to bottom right,#F56C69,#EFAE97);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    color: rgb(255, 255, 255);
+  }
+
   /* .profile_delete_confirm i{
     fon
   } */
@@ -265,6 +301,13 @@
         width: 100%;
         margin: 0;
         padding: 0;
+      }
+      .two_btn_holder {
+        justify-content: center;
+      }
+
+      .two_btn_holder input{
+        width: 50%;
       }
     /* Test........... */
 

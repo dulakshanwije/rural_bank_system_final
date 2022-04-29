@@ -1,17 +1,38 @@
+<!DOCTYPE html>
 <?php
+
 require_once("db_conn.php");
 
 if (!isset($_SESSION["crnt_b_id"])) {
     header("Location: bank_login.php?error=Please Login First!");
 }
 
-$customer_id = $_GET["customer_nic"];
+$current_id = $_GET["customer_nic"];
+$savings_id = $_GET["savings_id"];
+
+$sql = "SELECT * FROM savings_table WHERE customer_nic = '$current_id'and savings_id = '$savings_id'";
+
+$result = mysqli_query($conn, $sql);
+
+$res = mysqli_fetch_assoc($result);
+
+if (mysqli_num_rows($result)) {
+
+    $savings_id = $res["savings_id"];
+    $savings_type = $res["savings_type"];
+    $savings_amount = $res["savings_amount"];
+    $savings_interest_rate = $res["savings_interest_rate"];
+    $savings_interest_amount = $res["savings_interest_amount"];
+    $savings_full_amount = $res["savings_full_amount"];
+    $savings_issued_date = $res["savings_issued_date"];
+}
+
 ?>
-<!DOCTYPE html>
+
 <html lang="en">
 
 <head>
-    <title>Customer Savings</title>
+    <title>Edit Savings Details</title>
 
     <!-- Meta Tags -->
     <meta charset="UTF-8">
@@ -25,22 +46,12 @@ $customer_id = $_GET["customer_nic"];
     <script src="script.js"></script>
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
-    <style>
-        /* Chrome, Safari, Edge, Opera */
-        input::-webkit-outer-spin-button,
-        input::-webkit-inner-spin-button {
-            -webkit-appearance: none;
-            margin: 0;
-        }
 
-        /* Firefox */
-        input[type=number] {
-            -moz-appearance: textfield;
-        }
-    </style>
+
 </head>
 
 <body>
+
     <!-- Navigation Bar -->
     <div class="nav-pc-part">
         <div class="topnavbar">
@@ -100,49 +111,52 @@ $customer_id = $_GET["customer_nic"];
         </div>
     </div>
 
-    <!-- Add Customer Loan Details -->
+    <!-- User Updating Form -->
 
-    <div id="bank-loan-form-section">
+    <div id="customer-update-section">
         <div class="contact-form-container">
             <div class="contact-form">
-                <h3>ADDING SAVINGS DETAILS OF <?php echo $customer_id; ?></h3>
-                <form action="bank_customer_savings_adder.php?customer_nic=<?php echo $customer_id; ?>" method="POST">
+                <h3>EDITING DETAILS OF SAVNIGS ID  <?php echo $savings_id; ?> OF <?php echo $current_id; ?></h3><br>
+                <form action="customer_data_updater.php?crnt_customer_nic=<?php echo $current_id; ?>" method="POST">
                     <div class="contact-form-inputs">
-                        <div class="bank-form-head-txt">
-                            <input type="checkbox" id="auto_checker_mort" name="auto_checker_mort" value="auto_checked" checked>
-                            <label for="auto_checker_mort">Auto Calculate</label>
-                        </div>
+                        <?php if (isset($_GET['error'])) { ?>
+                            <p class="error"><?php echo $_GET['error']; ?>
+                            </p>
+                        <?php } ?>
+                        
+                        <!-- Savnigs Type -->
 
-                        <label for="savings_amount" class="bank-form-lable-txt">Saving Amount :</label>
-                        <input id="savings_amount" name="savings_amount" type="number" step="0.01" class="contact-txt" required>
-
-                        <label for="savings_interest" class="bank-form-lable-txt">Saving Interest Rate (%) :</label>
-                        <input id="savings_interest" name="savings_interest" type="number" step="0.01" class="contact-txt" required>
-
-                        <label for="savings_interest_amount" class="bank-form-lable-txt">Saving Interest Amount :</label>
-                        <input id="savings_interest_amount" name="savings_interest_amount" type="number" step="0.01" class="contact-txt" required>
-
-                        <label for="savings_full_amount" class="bank-form-lable-txt">Saving Full Amount :</label>
-                        <input id="savings_full_amount" name="savings_full_amount" type="number" step="0.01" class="contact-txt" required>
+                        <label for="savings_amount" class="contact-txt" style= "border:none;" >Saving Amount</label>
+                        
+                        <input type="text" name="savings_amount" id="" placeholder="Saving Amount" class="contact-txt" value="<?php echo $savings_amount; ?>" required>
 
 
-                        <label for="savings_issued_date" class="bank-form-lable-txt">Saving Issued Date :</label>
-                        <input type="text" name="savings_issued_date" id="savings_issued_date" class="contact-txt" onfocus="(this.type = 'date')" required>
+                        <label for="savings_interest_rate" class="contact-txt" style= "border:none;" >Savings Interest Rate</label>
+
+                        <input type="text" name="savings_interest_rate" id="" placeholder="Savings Interest Rate" class="contact-txt" value="<?php echo $savings_interest_rate; ?>" required>
 
 
-                        <div class="bank-form-head-txt" style="text-align: justify;">
-                            <input type="checkbox" id="agreement_checker" name="agreement_checker" required>
-                            <label for="agreement_checker">I hereby agree to be aware that the relevant Financial Documentations and Transactions regarding the details related to this form is ALREADY DONE VIA THE BANK PHYSICALLY, and this is just a documentary process storing the data which will be helpful to our customers.
-                            </label>
-                        </div>
-                        <input type="submit" value="ADD DETAILS" class="contact-btn">
+
+                        <label for="savings_interest_amount" class="contact-txt" style= "border:none;" >Savings Interest Amount</label>
+
+                        <input type="text" name="savings_interest_amount" id="" placeholder="Savings Interest Amount" class="contact-txt" value="<?php echo $savings_interest_amount; ?>" required>
+                        
+                        
+                        <label for="savings_full_amount" class="contact-txt" style= "border:none;" >Savings Full Amount</label>
+
+                        <input type="text" name="savings_full_amount" id="" placeholder="Savings Full Amount" class="contact-txt" value="<?php echo $savings_full_amount; ?>" required>
+                        
+                        
+                        <label for="savings_issued_date" class="contact-txt" style= "border:none;" >Savings Issued Date</label>
+
+                        <input type="date" name="savings_issued_date" id="" placeholder="Savings Issued Date" class="contact-txt" value="<?php echo $savings_issued_date; ?>" required>
+                    
+                        <input type="submit" id="btn_submit" value="UPDATE" class="contact-btn">
                     </div>
                 </form>
             </div>
         </div>
     </div>
-
-    <!-- footer -->
 
     <div class="footer">
         <h1>R_B_S</h1>
@@ -158,6 +172,7 @@ $customer_id = $_GET["customer_nic"];
                     Creators</span></a>
         </p>
     </div>
+
 </body>
 
 </html>

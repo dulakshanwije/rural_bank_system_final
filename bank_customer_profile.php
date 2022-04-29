@@ -16,6 +16,19 @@ $sql_bank = "SELECT bank_password FROM bank_table WHERE bank_id = '$current_bank
 $result_bank = mysqli_query($conn, $sql_bank);
 $res_bank = mysqli_fetch_assoc($result_bank);
 
+$_SESSION["customer_email"] = $res["customer_email"];
+$_SESSION["customer_nic"] = $customer_id;
+
+// if(!isset($_GET["email"])){
+//     if($_GET["email"] == "success"){
+//         echo "
+//         <script>
+//         setTimeout(function() { alert('Email Sent Successfully!'); }, 1000);
+//         </script>
+//         ";
+//     }
+// }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -61,10 +74,48 @@ $res_bank = mysqli_fetch_assoc($result_bank);
             }
         }
     </script>
-
+    <style>
+        html {
+            height: 100%;
+        }
+    </style>
 </head>
 
 <body>
+    <?php
+    if(isset($_GET["email"])){
+        if($_GET["email"] == "success"){
+            echo "
+            <div
+            style = '
+            position:absolute;
+            top: 45px;
+            left:0;
+            right:0;
+            width:fit-content;
+            z-index: 100;
+            margin:auto;
+            padding:5px 10px;
+            color: white;
+            background-color:rgba(78, 148, 79,0.8);
+            padding-top: 0;
+            text-align: center;
+            flex-direction: column;
+            align-items: center;
+            font-size:1.6rem;
+            ' id = 'msg_box_email'>
+            <p>Email Sent Successfully!</p>
+            </div>
+            <script>
+                setTimeout(function() {
+                    document.getElementById('msg_box_email').style.display = 'none';
+
+                }, 5000);
+            </script>
+            ";
+        }
+    }
+    ?>
     <!-- Navigation Bar -->
     <div class="nav-pc-part">
         <div class="topnavbar">
@@ -250,8 +301,10 @@ $res_bank = mysqli_fetch_assoc($result_bank);
                     <button class="profile_btn delete_btn" id = "cus_dlt_btn" onclick = "dltconfirmPopup()">Remove Profile</button>
                     ';
             }
-
+            
+            
             ?>
+            <button class="profile_btn contact_btn" id = "cus_dlt_btn" onclick = "window.open('bank_customer_contact.php?customer_nic=<?php echo $res['customer_nic']; ?>','_self');">Contact Customer</button>
         </div>
         <div class="profile_delete_confirm" id="profile_delete_confirm">
             <h3>Enter Bank Password :</h3>
@@ -305,17 +358,20 @@ $res_bank = mysqli_fetch_assoc($result_bank);
                         </a>
                     </span>
                 </div>
-
-                <!-- <div class="menu_btn_holder">
+                
+                <div class="menu_btn_holder">
                 <button id = "tab_btn_savings" class="tab_btn" onclick="viewSavings()">Savings</button>
                 <span class = "tab_add_icon">
                 <a href="bank_customer_savings.php?customer_nic=<?php echo $customer_id; ?>">
                     <i class="far fa-plus-square"></i></span>
                 </a>    
-            </div> -->
+            </div>
             </div>
             <div class="menu_details_container">
                 <div class="loan_details" id="loan_details">
+
+                <!-- Loan Section -->
+
                     <?php
 
                     $sql_loans = "SELECT * FROM loan_table WHERE customer_nic = '$customer_id'";
@@ -384,6 +440,10 @@ $res_bank = mysqli_fetch_assoc($result_bank);
                                 <td>' . $row_loan["loan_days_per_installment"] . '</td>
                             </tr>
                             </table>
+                            <div class = "two_btn_holder">
+                                <input type="button" value="Update" class = "update" onclick = "location.href = \'bank_customer_loan_update.php?customer_nic='.$customer_id.'&loan_id='.$row_loan["loan_id"].'\'">
+                                <input type="button" value="Edit" class = "edit" onclick = "location.href = \'bank_customer_loan_edit.php?customer_nic='.$customer_id.'&loan_id='.$row_loan["loan_id"].'\'">
+                            </div>
                         </div>
                         <hr>
                         <br>
@@ -403,6 +463,9 @@ $res_bank = mysqli_fetch_assoc($result_bank);
                     ?>
                 </div>
                 <div class="mortgage_details" id="mortgage_details">
+
+                <!-- Mortgage Section  -->
+
                     <?php
 
                     $sql_mortgages = "SELECT * FROM mortgage_table WHERE customer_nic = '$customer_id'";
@@ -480,6 +543,12 @@ $res_bank = mysqli_fetch_assoc($result_bank);
                                 <td>' . $row_mortg["mortgage_days_per_installment"] . '</td>
                             </tr>
                             </table>
+
+                            <div class = "two_btn_holder">
+                                <input type="button" value="Update" class = "update" onclick = "location.href = \'bank_customer_mortgage_update.php?customer_nic='.$customer_id.'&mortgage_id='.$row_mortg["mortgage_id"].'\'">
+                                <input type="button" value="Edit" class = "edit" onclick = "location.href = \'bank_customer_mortgage_edit.php?customer_nic='.$customer_id.'&maortgage_id='.$row_mortg["mortgage_id"].'\'">
+                            </div>
+
                         </div>
                         <hr>
                         <br>
@@ -498,15 +567,70 @@ $res_bank = mysqli_fetch_assoc($result_bank);
                     }
                     ?>
                 </div>
-                <!-- <div class="savings_details" id="savings_details">
-                <div class="single_data_holder">
-                    <h4>Savings</h4>
-                <p>You have a choice of fixed or floating interest rates.
-                    Ability to apply via ComBank Digital - If you are already registered for our ComBank Digital online banking facility, now you can apply for Personal Loans online from where ever you are at a time convenient to you.
-                    Your loan will be processed within a maximum of three working days, after submitting the loan application with all required documents.
-                    You can talk to our loan officers for advice and guidance at any time before and during the repayment period of your loan</p>
+                <div class="savings_details" id="savings_details">
+
+                <!-- Saving Section  -->
+
+                    <?php
+                    $sql_savings = "SELECT * FROM savings_table WHERE customer_nic = '$customer_id'";
+                    $result_savings = mysqli_query($conn, $sql_savings);
+                    if (mysqli_num_rows($result_savings) > 0) {
+                        while ($row_savings = mysqli_fetch_assoc($result_savings)) {
+                            echo '
+                        <div class="single_data_holder">
+                            <h4>Savings Index No :' . $row_savings["savings_id"] . '</h4>
+                            <table>
+
+                            <tr>
+                                <td>Savings ID : </td>
+                                <td>' . $row_savings["savings_id"] . '</td>
+                            </tr>
+                            <tr>
+                                <td>Savings Amount : </td>
+                                <td>' . $row_savings["savings_amount"] . '</td>
+                            </tr>
+                            <tr>
+                                <td>Interest Rate (%) : </td>
+                                <td>' . $row_savings["savings_interest_rate"] . '</td>
+                            </tr>
+                            <tr>
+                                <td>Interest Amount : </td>
+                                <td>' . $row_savings["savings_interest_amount"] . '</td>
+                            </tr>
+                            <tr>
+                                <td>Savings Full Amount : </td>
+                                <td>' . $row_savings["savings_full_amount"] . '</td>
+                            </tr
+                            <tr>
+                                <td>Savings Issued Date : </td>
+                                <td>' . $row_savings["savings_issued_date"] . '</td>
+                            </tr>
+                        </table>
+
+                        <div class = "two_btn_holder">
+                                <input type="button" value="Update" class = "update" onclick = "location.href = \'bank_customer_savings_update.php?customer_nic='.$customer_id.'&savings_id='.$row_savings["savings_id"].'\'">
+                                <input type="button" value="Edit" class = "edit" onclick = "location.href = \'bank_customer_savings_edit.php?customer_nic='.$customer_id.'&savings_id='.$row_savings["savings_id"].'\'">
+                            </div>
+
+                        </div>
+                        <hr>
+                        <br>
+                        ';
+                        }
+                    } else {
+                        echo '
+                    <div class="single_data_holder">
+                        <h4>No Savings Details Found!</h4>
+                        <p>
+                            There are no savings details under the NIC number
+                             ' . $customer_id . '.
+                        </p>
+                    </div>
+                    ';
+                    }
+                    ?>
+
                 </div>
-            </div> -->
             </div>
         </div>
 

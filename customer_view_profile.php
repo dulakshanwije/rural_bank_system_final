@@ -211,6 +211,10 @@ $res = mysqli_fetch_assoc($result);
                 <div class="menu_btn_holder">
                     <button id="tab_btn_mortgages" class="tab_btn" onclick="viewMortgages()">Mortgages</button>
                 </div>
+                
+                <div class="menu_btn_holder">
+                    <button id="tab_btn_savings" class="tab_btn" onclick="viewSavings()">Savings</button>
+                </div>
 
             </div>
             <div class="menu_details_container">
@@ -397,15 +401,62 @@ $res = mysqli_fetch_assoc($result);
                     }
                     ?>
                 </div>
-                <!-- <div class="savings_details" id="savings_details">
-                <div class="single_data_holder">
-                    <h4>Savings</h4>
-                <p>You have a choice of fixed or floating interest rates.
-                    Ability to apply via ComBank Digital - If you are already registered for our ComBank Digital online banking facility, now you can apply for Personal Loans online from where ever you are at a time convenient to you.
-                    Your loan will be processed within a maximum of three working days, after submitting the loan application with all required documents.
-                    You can talk to our loan officers for advice and guidance at any time before and during the repayment period of your loan</p>
+                <div class="savings_details" id="savings_details">
+                <?php
+
+                    $sql_savings = "SELECT * FROM savings_table WHERE customer_nic = '$customer_id'";
+                    $result_savings = mysqli_query($conn, $sql_savings);
+                    if (mysqli_num_rows($result_savings) > 0) {
+                        while ($row_savings = mysqli_fetch_assoc($result_savings)) {
+
+                            echo '
+                        <div class="single_data_holder">
+                            <h4>Savings Index No :' . $row_savings["savings_id"] . '</h4>
+                            <table>
+
+                            <tr>
+                                <td>Savings ID : </td>
+                                <td>' . $row_savings["savings_id"] . '</td>
+                            </tr>
+                            <tr>
+                                <td>Savings Amount : </td>
+                                <td>' . $row_savings["savings_amount"] . '</td>
+                            </tr>
+                            <tr>
+                                <td>Interest Rate (%) : </td>
+                                <td>' . $row_savings["savings_interest_rate"] . '</td>
+                            </tr>
+                            <tr>
+                                <td>Interest Amount : </td>
+                                <td>' . $row_savings["savings_interest_amount"] . '</td>
+                            </tr>
+                            <tr>
+                                <td>Savings Full Amount : </td>
+                                <td>' . $row_savings["savings_full_amount"] . '</td>
+                            </tr>
+                            <tr>
+                                <td>Savings Issued Date : </td>
+                                <td>' . $row_savings["savings_issued_date"] . '</td>
+                            </tr>
+                            </table>
+                        </div>
+                        <hr>
+                        <br>
+                        ';
+                        }
+                    } else {
+                        echo '
+                    <div class="single_data_holder">
+                        <h4>No Savings Details Found!</h4>
+                        <p>
+                            There are no savings details under the NIC number
+                            ' . $customer_id . '.
+                        </p>
+                    </div>
+                    ';
+                    }
+                    ?>
                 </div>
-            </div> -->
             </div>
         </div>
 

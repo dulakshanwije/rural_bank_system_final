@@ -17,7 +17,7 @@ $current_date = date('d-m-Y h:i:sa');
 
 $bank_id = $_SESSION["crnt_b_id"];
 
-$sql = "INSERT INTO bank_request_table VALUES ('','$bank_req_title','$bank_req_info','$current_date','$bank_id')";
+$sql = "INSERT INTO bank_request_table VALUES ('','$bank_req_title','$bank_req_info','$current_date','Pending','','$bank_id')";
 
 if(mysqli_query($conn,$sql)){
     header("location:bank_home.php");

@@ -124,16 +124,16 @@ if (!isset($_SESSION["crnt_b_id"])) {
                 <p>Get an idea about the amount sent from the bank on behalf of the mortgages to the customers to get a real idea about the value of the assets available in the bank</p>
                 <button onclick="window.open('bank_view_customer_mortgages.php','_self')">View Mortgages</button>
             </div>
-            <div class="bank-columns-items">
+            <!-- <div class="bank-columns-items">
                 <h5>AVAILABLE CUSTOMERS</h5>
                 <p>Reveiw the requests done by the customers of your bank to loosen their seriousness of the rules and the regulations given by your bank when doing the transactions</p>
                 <button onclick="window.open('bank_view_customer_details.php','_self');">View Customers</button>
-            </div>
-            <!-- <div class="bank-columns-items">
+            </div> -->
+            <div class="bank-columns-items">
                 <h5>AVAILABLE SAVINGS</h5>
                 <p>Reveiw the requests done by the customers of your bank to loosen their seriousness of the rules and the regulations given by your bank when doing the transactions</p>
-                <button>View Savings</button>
-            </div> -->
+                <button onclick="window.open('bank_view_customer_savings.php','_self')">View Savings</button>
+            </div>
         </div>
     </div>
 
